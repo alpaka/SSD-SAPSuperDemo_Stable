@@ -1,0 +1,45 @@
+{
+  "name": "SSD_SAPSuperDemo_v.145",
+  "description": "This Workflow processes Invoices via UiPath ML services. \r\nIt can (asked to the user):\r\n-take the documents from email or folder\r\n-present validation station\r\n-enter into SAP \r\n-send results via email",
+  "main": "Main.xaml",
+  "dependencies": {
+    "UiPath.Excel.Activities": "[2.7.2]",
+    "UiPath.Form.Activities": "[1.0.1]",
+    "UiPath.IntelligentOCR.Activities": "[4.1.0-preview]",
+    "UiPath.MachineLearningExtractor": "[1.0.0-preview]",
+    "UiPath.Mail.Activities": "[1.7.2]",
+    "UiPath.System.Activities": "[19.12.0-preview]",
+    "UiPath.UIAutomation.Activities": "[19.11.0]",
+    "UiPathTeam.Interactive.Activities": "[1.1.601]"
+  },
+  "webServices": [],
+  "schemaVersion": "4.0",
+  "studioVersion": "19.9.0.87",
+  "projectVersion": "1.4.5",
+  "runtimeOptions": {
+    "exceptionHandlerWorkflow": "GlobalHandler.xaml",
+    "autoDispose": false,
+    "isPausable": true,
+    "requiresUserInteraction": true,
+    "supportsPersistence": false,
+    "excludedLoggedData": [
+      "Private:*",
+      "*password*"
+    ],
+    "executionType": "Workflow"
+  },
+  "designOptions": {
+    "projectProfile": "Developement",
+    "outputType": "Process",
+    "libraryOptions": {
+      "includeOriginalXaml": false,
+      "privateWorkflows": []
+    },
+    "fileInfos": []
+  },
+  "arguments": {
+    "input": [],
+    "output": []
+  },
+  "expressionLanguage": "VisualBasic"
+}

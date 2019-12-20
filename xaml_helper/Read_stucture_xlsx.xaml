@@ -1,0 +1,340 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Read_stucture_xlsx" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mv="clr-namespace:Microsoft.VisualBasic;assembly=Microsoft.VisualBasic, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" xmlns:s1="clr-namespace:System;assembly=mscorlib" xmlns:s2="clr-namespace:System;assembly=System" xmlns:sa="clr-namespace:System.Activities;assembly=System.Activities" xmlns:sa1="clr-namespace:System.Activities;assembly=System.Activities, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" xmlns:sae="clr-namespace:System.Activities.Expressions;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sas="clr-namespace:System.Activities.Statements;assembly=System.Activities" xmlns:sc="clr-namespace:System.Collections;assembly=mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" xmlns:sc1="clr-namespace:System.Collections;assembly=mscorlib" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" xmlns:scg1="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:scg2="clr-namespace:System.Collections.Generic;assembly=System" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" xmlns:sd1="clr-namespace:System.Data;assembly=System.Data.DataSetExtensions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" xmlns:sd2="clr-namespace:System.Diagnostics;assembly=System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" xmlns:sd3="clr-namespace:System.Drawing;assembly=System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" xmlns:sd4="clr-namespace:System.Data;assembly=System.Data" xmlns:si="clr-namespace:System.IO;assembly=mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" xmlns:sl="clr-namespace:System.Linq;assembly=System.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" xmlns:snm="clr-namespace:System.Net.Mail;assembly=System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" xmlns:ss="clr-namespace:System.Security;assembly=mscorlib" xmlns:sx="clr-namespace:System.Xml;assembly=System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" xmlns:sxl="clr-namespace:System.Xml.Linq;assembly=System.Xml.Linq, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" xmlns:uc="clr-namespace:UiPath.Core;assembly=UiPath.UiAutomation.Activities" xmlns:uc1="clr-namespace:UiPath.Core;assembly=UiPath.System.Activities" xmlns:uca="clr-namespace:UiPath.Core.Activities;assembly=UiPath.UiAutomation.Activities" xmlns:uca1="clr-namespace:UiPath.Core.Activities;assembly=UiPath.System.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="dir_docs" Type="InOutArgument(x:String)" />
+    <x:Property Name="dir_results" Type="InOutArgument(x:String)" />
+    <x:Property Name="dir_docs_notprocessed" Type="InOutArgument(x:String)" />
+    <x:Property Name="dir_docs_processed" Type="InOutArgument(x:String)" />
+    <x:Property Name="mail_folder" Type="InOutArgument(x:String)" />
+    <x:Property Name="SAP_username" Type="InOutArgument(x:String)" />
+    <x:Property Name="extract_from_email" Type="InOutArgument(x:Boolean)" />
+    <x:Property Name="readmails" Type="InOutArgument(x:Int32)" />
+    <x:Property Name="mail_sendto" Type="InOutArgument(x:String)" />
+    <x:Property Name="format_xls" Type="InOutArgument(x:Boolean)" />
+    <x:Property Name="asset_orch_login" Type="InOutArgument(x:String)" />
+    <x:Property Name="asset_orch_folder" Type="InOutArgument(x:String)" />
+    <x:Property Name="asset_orch_found" Type="InOutArgument(x:Boolean)" />
+    <x:Property Name="SAP_Password" Type="InOutArgument(ss:SecureString)" />
+    <x:Property Name="getfromasset" Type="InOutArgument(x:Boolean)" />
+    <x:Property Name="enterinSAP" Type="InOutArgument(x:Boolean)" />
+  </x:Members>
+  <sap:VirtualizedContainerService.HintSize>636,599</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <mva:VisualBasic.Settings>Assembly references and imported namespaces for internal implementation</mva:VisualBasic.Settings>
+  <TextExpression.NamespacesForImplementation>
+    <scg1:List x:TypeArguments="x:String" Capacity="14">
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>System.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>UiPath.Excel</x:String>
+    </scg1:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg1:List x:TypeArguments="AssemblyReference" Capacity="30">
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Data.Entity</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>System.Configuration.Install</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+    </scg1:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Read Variables &amp; directory structure from &quot;DIRECTORY_STRUCTURE.XLSX&quot; - delete all files in this directory if advised" sap:VirtualizedContainerService.HintSize="616,539" sap2010:WorkflowViewState.IdRef="Sequence_30">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="s1:String[]" Name="files_to_delete" />
+      <Variable x:TypeArguments="sd4:DataTable" Name="db_cleanup" />
+      <Variable x:TypeArguments="sd4:DataTable" Name="db_parameter" />
+      <Variable x:TypeArguments="ui:GenericValue" Name="current_dir" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg1:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg1:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:KillProcess ContinueOnError="{x:Null}" Process="{x:Null}" DisplayName="Kill Process EXCEL.EXE" sap:VirtualizedContainerService.HintSize="574,22" sap2010:WorkflowViewState.IdRef="KillProcess_1" ProcessName="Excel" />
+    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="574,51" sap2010:WorkflowViewState.IdRef="MultipleAssign_14">
+      <ui:MultipleAssign.AssignOperations>
+        <scg1:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_37">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:Boolean">[asset_orch_found]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_38">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="ui:GenericValue">[current_dir]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="ui:GenericValue">[Environment.CurrentDirectory]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+        </scg1:List>
+      </ui:MultipleAssign.AssignOperations>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg1:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg1:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:MultipleAssign>
+    <Parallel DisplayName="Reading the Parameters from the XLS" sap:VirtualizedContainerService.HintSize="574,112" sap2010:WorkflowViewState.IdRef="Parallel_1">
+      <Sequence DisplayName="Reading Directory Structure" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_34">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg1:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg1:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[db_cleanup]" DisplayName="Read Range from XLSX" sap:VirtualizedContainerService.HintSize="338,87" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="dir_structure" WorkbookPath="[current_dir+&quot;\Default_parameters.xlsx&quot;]" />
+        <ui:MultipleAssign DisplayName="Get var-content from XLSX" sap:VirtualizedContainerService.HintSize="338,191" sap2010:WorkflowViewState.IdRef="MultipleAssign_4">
+          <ui:MultipleAssign.AssignOperations>
+            <scg1:List x:TypeArguments="ui:AssignOperation" Capacity="8">
+              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_7">
+                <ui:AssignOperation.To>
+                  <OutArgument x:TypeArguments="x:String">[dir_docs]</OutArgument>
+                </ui:AssignOperation.To>
+                <ui:AssignOperation.Value>
+                  <InArgument x:TypeArguments="x:String">[db_cleanup.Rows(0).Item(1).ToString]</InArgument>
+                </ui:AssignOperation.Value>
+              </ui:AssignOperation>
+              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_8">
+                <ui:AssignOperation.To>
+                  <OutArgument x:TypeArguments="x:String">[dir_results]</OutArgument>
+                </ui:AssignOperation.To>
+                <ui:AssignOperation.Value>
+                  <InArgument x:TypeArguments="x:String">[db_cleanup.Rows(1).Item(1).ToString]</InArgument>
+                </ui:AssignOperation.Value>
+              </ui:AssignOperation>
+              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_9">
+                <ui:AssignOperation.To>
+                  <OutArgument x:TypeArguments="x:String">[dir_docs_processed]</OutArgument>
+                </ui:AssignOperation.To>
+                <ui:AssignOperation.Value>
+                  <InArgument x:TypeArguments="x:String">[db_cleanup.Rows(2).Item(1).ToString]</InArgument>
+                </ui:AssignOperation.Value>
+              </ui:AssignOperation>
+              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_11">
+                <ui:AssignOperation.To>
+                  <OutArgument x:TypeArguments="x:String">[dir_docs_notprocessed]</OutArgument>
+                </ui:AssignOperation.To>
+                <ui:AssignOperation.Value>
+                  <InArgument x:TypeArguments="x:String">[db_cleanup.Rows(3).Item(1).ToString]</InArgument>
+                </ui:AssignOperation.Value>
+              </ui:AssignOperation>
+            </scg1:List>
+          </ui:MultipleAssign.AssignOperations>
+        </ui:MultipleAssign>
+      </Sequence>
+      <Sequence DisplayName="Reading all other Parameters" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_35">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg1:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg1:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[db_parameter]" DisplayName="Reading Directory Structure" sap:VirtualizedContainerService.HintSize="338,87" sap2010:WorkflowViewState.IdRef="ReadRange_2" SheetName="other_param" WorkbookPath="[current_dir+&quot;\Default_parameters.xlsx&quot;]" />
+        <ui:MultipleAssign DisplayName="Get var-content from XLSX" sap:VirtualizedContainerService.HintSize="338,315" sap2010:WorkflowViewState.IdRef="MultipleAssign_6">
+          <ui:MultipleAssign.AssignOperations>
+            <scg1:List x:TypeArguments="ui:AssignOperation" Capacity="16">
+              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_15">
+                <ui:AssignOperation.To>
+                  <OutArgument x:TypeArguments="x:String">[mail_folder]</OutArgument>
+                </ui:AssignOperation.To>
+                <ui:AssignOperation.Value>
+                  <InArgument x:TypeArguments="x:String">[db_parameter.Rows(1).Item(1).ToString]</InArgument>
+                </ui:AssignOperation.Value>
+              </ui:AssignOperation>
+              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_16">
+                <ui:AssignOperation.To>
+                  <OutArgument x:TypeArguments="x:String">[SAP_username]</OutArgument>
+                </ui:AssignOperation.To>
+                <ui:AssignOperation.Value>
+                  <InArgument x:TypeArguments="x:String">[db_parameter.Rows(0).Item(1).ToString]</InArgument>
+                </ui:AssignOperation.Value>
+              </ui:AssignOperation>
+              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_17">
+                <ui:AssignOperation.To>
+                  <OutArgument x:TypeArguments="x:Boolean">[extract_from_email]</OutArgument>
+                </ui:AssignOperation.To>
+                <ui:AssignOperation.Value>
+                  <InArgument x:TypeArguments="x:Boolean">[convert.ToBoolean(db_parameter.Rows(2).Item(1))]</InArgument>
+                </ui:AssignOperation.Value>
+              </ui:AssignOperation>
+              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_18">
+                <ui:AssignOperation.To>
+                  <OutArgument x:TypeArguments="x:Int32">[readmails]</OutArgument>
+                </ui:AssignOperation.To>
+                <ui:AssignOperation.Value>
+                  <InArgument x:TypeArguments="x:Int32">[Convert.ToInt32(db_parameter.Rows(3).Item(1))]</InArgument>
+                </ui:AssignOperation.Value>
+              </ui:AssignOperation>
+              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_19">
+                <ui:AssignOperation.To>
+                  <OutArgument x:TypeArguments="x:String">[mail_sendto]</OutArgument>
+                </ui:AssignOperation.To>
+                <ui:AssignOperation.Value>
+                  <InArgument x:TypeArguments="x:String">[db_parameter.Rows(4).Item(1).tostring]</InArgument>
+                </ui:AssignOperation.Value>
+              </ui:AssignOperation>
+              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_20">
+                <ui:AssignOperation.To>
+                  <OutArgument x:TypeArguments="x:Boolean">[format_xls]</OutArgument>
+                </ui:AssignOperation.To>
+                <ui:AssignOperation.Value>
+                  <InArgument x:TypeArguments="x:Boolean">[convert.ToBoolean(db_parameter.Rows(5).Item(1))]</InArgument>
+                </ui:AssignOperation.Value>
+              </ui:AssignOperation>
+              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_21">
+                <ui:AssignOperation.To>
+                  <OutArgument x:TypeArguments="x:String">[asset_orch_login]</OutArgument>
+                </ui:AssignOperation.To>
+                <ui:AssignOperation.Value>
+                  <InArgument x:TypeArguments="x:String">[db_parameter.Rows(6).Item(1).ToString]</InArgument>
+                </ui:AssignOperation.Value>
+              </ui:AssignOperation>
+              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_22">
+                <ui:AssignOperation.To>
+                  <OutArgument x:TypeArguments="x:String">[asset_orch_folder]</OutArgument>
+                </ui:AssignOperation.To>
+                <ui:AssignOperation.Value>
+                  <InArgument x:TypeArguments="x:String">[db_parameter.Rows(7).Item(1).ToString]</InArgument>
+                </ui:AssignOperation.Value>
+              </ui:AssignOperation>
+            </scg1:List>
+          </ui:MultipleAssign.AssignOperations>
+        </ui:MultipleAssign>
+      </Sequence>
+    </Parallel>
+    <TryCatch DisplayName="Check if Asset is found on Orchestrator" sap:VirtualizedContainerService.HintSize="574,51" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg1:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg1:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <TryCatch.Try>
+        <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="[asset_orch_login]" DisplayName="Get Credential" FolderPath="[asset_orch_folder]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="GetRobotCredential_2" Password="[SAP_Password]" Username="[SAP_username]" />
+      </TryCatch.Try>
+      <TryCatch.Catches>
+        <Catch x:TypeArguments="s1:Exception" sap:VirtualizedContainerService.HintSize="404,21" sap2010:WorkflowViewState.IdRef="Catch`1_5">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg1:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg1:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ActivityAction x:TypeArguments="s1:Exception">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="s1:Exception" Name="exception" />
+            </ActivityAction.Argument>
+            <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="338,98" sap2010:WorkflowViewState.IdRef="MultipleAssign_13">
+              <ui:MultipleAssign.AssignOperations>
+                <scg1:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_36">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:Boolean">[asset_orch_found]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                </scg1:List>
+              </ui:MultipleAssign.AssignOperations>
+            </ui:MultipleAssign>
+          </ActivityAction>
+        </Catch>
+      </TryCatch.Catches>
+    </TryCatch>
+    <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[db_cleanup]" DisplayName="For Each Row - check if DIR exist and should be purged?" sap:VirtualizedContainerService.HintSize="574,51" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+      <ui:ForEachRow.Body>
+        <ActivityAction x:TypeArguments="sd4:DataRow">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="sd4:DataRow" Name="row" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="create Dir &amp; purge files" sap:VirtualizedContainerService.HintSize="536,1012" sap2010:WorkflowViewState.IdRef="Sequence_33">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="ui:GenericValue" Name="path" />
+              <Variable x:TypeArguments="ui:GenericValue" Name="purge" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg1:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg1:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:GetRowItem Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="path" DisplayName="Read path" sap:VirtualizedContainerService.HintSize="494,64" sap2010:WorkflowViewState.IdRef="GetRowItem_2" Row="[row]">
+              <ui:GetRowItem.Value>
+                <OutArgument x:TypeArguments="ui:GenericValue">[path]</OutArgument>
+              </ui:GetRowItem.Value>
+            </ui:GetRowItem>
+            <ui:CreateDirectory ContinueOnError="{x:Null}" DisplayName="Create Folder if not exist" sap:VirtualizedContainerService.HintSize="494,84" sap2010:WorkflowViewState.IdRef="CreateDirectory_1" Path="[path]" />
+            <ui:GetRowItem Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="purge_first" DisplayName="Read if should be purged" sap:VirtualizedContainerService.HintSize="494,64" sap2010:WorkflowViewState.IdRef="GetRowItem_3" Row="[row]">
+              <ui:GetRowItem.Value>
+                <OutArgument x:TypeArguments="ui:GenericValue">[purge]</OutArgument>
+              </ui:GetRowItem.Value>
+            </ui:GetRowItem>
+            <If Condition="[purge.ToUpper=&quot;YES&quot;]" DisplayName="If - directory should be purged?" sap:VirtualizedContainerService.HintSize="494,588" sap2010:WorkflowViewState.IdRef="If_7">
+              <If.Then>
+                <Sequence sap:VirtualizedContainerService.HintSize="349,440" sap2010:WorkflowViewState.IdRef="Sequence_32">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg1:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg1:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Assign sap:VirtualizedContainerService.HintSize="307,60" sap2010:WorkflowViewState.IdRef="Assign_13">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="s1:String[]">[files_to_delete]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="s1:String[]">[directory.GetFiles(directory.GetCurrentDirectory+"\"+path)]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="307,248" sap2010:WorkflowViewState.IdRef="ForEach`1_6" Values="[files_to_delete]">
+                    <ui:ForEach.Body>
+                      <ActivityAction x:TypeArguments="x:String">
+                        <ActivityAction.Argument>
+                          <DelegateInArgument x:TypeArguments="x:String" Name="file" />
+                        </ActivityAction.Argument>
+                        <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="242,114" sap2010:WorkflowViewState.IdRef="Sequence_29">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg1:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg1:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:Delete ContinueOnError="{x:Null}" DisplayName="Delete file" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Delete_3" Path="[file]" />
+                        </Sequence>
+                      </ActivityAction>
+                    </ui:ForEach.Body>
+                  </ui:ForEach>
+                </Sequence>
+              </If.Then>
+            </If>
+          </Sequence>
+        </ActivityAction>
+      </ui:ForEachRow.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg1:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg1:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:ForEachRow>
+  </Sequence>
+</Activity>

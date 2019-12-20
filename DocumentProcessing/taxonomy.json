@@ -1,0 +1,367 @@
+﻿{
+  "DataContractVersion": "1.0",
+  "DocumentTypes": [
+    {
+      "DocumentTypeId": "UiPath.Financial.Receipt",
+      "Group": "UiPath",
+      "Category": "Financial",
+      "Name": "Receipt",
+      "OptionalUniqueIdentifier": null,
+      "TypeField": {
+        "FieldId": "UiPath.Financial.Receipt.DocumentType",
+        "FieldName": "Document Type"
+      },
+      "Fields": [
+        {
+          "FieldId": "UiPath.Financial.Receipt.ReceiptName",
+          "FieldName": "Receipt Name",
+          "IsMultiValue": false,
+          "Type": "Text",
+          "DeriveFieldsFormat": "",
+          "Components": [],
+          "SetValues": []
+        },
+        {
+          "FieldId": "UiPath.Financial.Receipt.VendorAddress",
+          "FieldName": "Vendor Address",
+          "IsMultiValue": false,
+          "Type": "Text",
+          "DeriveFieldsFormat": "",
+          "Components": [],
+          "SetValues": []
+        },
+        {
+          "FieldId": "UiPath.Financial.Receipt.PhoneNr",
+          "FieldName": "Phone Nr.",
+          "IsMultiValue": false,
+          "Type": "Text",
+          "DeriveFieldsFormat": "",
+          "Components": [],
+          "SetValues": []
+        },
+        {
+          "FieldId": "UiPath.Financial.Receipt.ReceiptDate",
+          "FieldName": "Receipt Date",
+          "IsMultiValue": false,
+          "Type": "Date",
+          "DeriveFieldsFormat": "",
+          "Components": [],
+          "SetValues": []
+        },
+        {
+          "FieldId": "UiPath.Financial.Receipt.TotalValue",
+          "FieldName": "Total Value",
+          "IsMultiValue": false,
+          "Type": "Text",
+          "DeriveFieldsFormat": "",
+          "Components": [],
+          "SetValues": []
+        },
+        {
+          "FieldId": "UiPath.Financial.Receipt.Currency",
+          "FieldName": "Currency",
+          "IsMultiValue": false,
+          "Type": "Text",
+          "DeriveFieldsFormat": "",
+          "Components": [],
+          "SetValues": []
+        },
+        {
+          "FieldId": "UiPath.Financial.Receipt.Items",
+          "FieldName": "Items",
+          "IsMultiValue": false,
+          "Type": "Table",
+          "DeriveFieldsFormat": "",
+          "Components": [
+            {
+              "FieldId": "UiPath.Financial.Receipt.Items.Qty",
+              "FieldName": "Qty.",
+              "IsMultiValue": false,
+              "Type": "Number",
+              "DeriveFieldsFormat": "",
+              "Components": [],
+              "SetValues": []
+            },
+            {
+              "FieldId": "UiPath.Financial.Receipt.Items.Description",
+              "FieldName": "Description",
+              "IsMultiValue": false,
+              "Type": "Text",
+              "DeriveFieldsFormat": "",
+              "Components": [],
+              "SetValues": []
+            },
+            {
+              "FieldId": "UiPath.Financial.Receipt.Items.Amount",
+              "FieldName": "Amount",
+              "IsMultiValue": false,
+              "Type": "Text",
+              "DeriveFieldsFormat": "",
+              "Components": [],
+              "SetValues": []
+            },
+            {
+              "FieldId": "UiPath.Financial.Receipt.Items.UnitPrice",
+              "FieldName": "Unit Price",
+              "IsMultiValue": false,
+              "Type": "Text",
+              "DeriveFieldsFormat": "",
+              "Components": [],
+              "SetValues": []
+            }
+          ],
+          "SetValues": []
+        }
+      ]
+    },
+    {
+      "DocumentTypeId": "UiPath.Financial.Invoice",
+      "Group": "UiPath",
+      "Category": "Financial",
+      "Name": "Invoice",
+      "OptionalUniqueIdentifier": null,
+      "TypeField": {
+        "FieldId": "UiPath.Financial.Invoice.DocumentType",
+        "FieldName": "Document Type"
+      },
+      "Fields": [
+        {
+          "FieldId": "UiPath.Financial.Invoice.Date",
+          "FieldName": "Date",
+          "IsMultiValue": false,
+          "Type": "Date",
+          "DeriveFieldsFormat": "",
+          "Components": [],
+          "SetValues": []
+        },
+        {
+          "FieldId": "UiPath.Financial.Invoice.Name",
+          "FieldName": "Name",
+          "IsMultiValue": false,
+          "Type": "Text",
+          "DeriveFieldsFormat": "",
+          "Components": [],
+          "SetValues": []
+        },
+        {
+          "FieldId": "UiPath.Financial.Invoice.InvoiceNo",
+          "FieldName": "Invoice No.",
+          "IsMultiValue": false,
+          "Type": "Text",
+          "DeriveFieldsFormat": "",
+          "Components": [],
+          "SetValues": []
+        },
+        {
+          "FieldId": "UiPath.Financial.Invoice.BillingAddress",
+          "FieldName": "Billing Address",
+          "IsMultiValue": false,
+          "Type": "Address",
+          "DeriveFieldsFormat": "",
+          "Components": [],
+          "SetValues": []
+        },
+        {
+          "FieldId": "UiPath.Financial.Invoice.VendorAddress",
+          "FieldName": "Vendor Address",
+          "IsMultiValue": false,
+          "Type": "Address",
+          "DeriveFieldsFormat": "",
+          "Components": [],
+          "SetValues": []
+        },
+        {
+          "FieldId": "UiPath.Financial.Invoice.Currency",
+          "FieldName": "Currency",
+          "IsMultiValue": false,
+          "Type": "Text",
+          "DeriveFieldsFormat": "",
+          "Components": [],
+          "SetValues": []
+        },
+        {
+          "FieldId": "UiPath.Financial.Invoice.TaxAmount",
+          "FieldName": "Tax Amount",
+          "IsMultiValue": false,
+          "Type": "Text",
+          "DeriveFieldsFormat": "",
+          "Components": [],
+          "SetValues": []
+        },
+        {
+          "FieldId": "UiPath.Financial.Invoice.Total",
+          "FieldName": "Total",
+          "IsMultiValue": false,
+          "Type": "Text",
+          "DeriveFieldsFormat": "",
+          "Components": [],
+          "SetValues": []
+        },
+        {
+          "FieldId": "UiPath.Financial.Invoice.Items",
+          "FieldName": "Items",
+          "IsMultiValue": false,
+          "Type": "Table",
+          "DeriveFieldsFormat": "",
+          "Components": [
+            {
+              "FieldId": "UiPath.Financial.Invoice.Items.Qty",
+              "FieldName": "Qty.",
+              "IsMultiValue": false,
+              "Type": "Number",
+              "DeriveFieldsFormat": "",
+              "Components": [],
+              "SetValues": []
+            },
+            {
+              "FieldId": "UiPath.Financial.Invoice.Items.Description",
+              "FieldName": "Description",
+              "IsMultiValue": false,
+              "Type": "Text",
+              "DeriveFieldsFormat": "",
+              "Components": [],
+              "SetValues": []
+            },
+            {
+              "FieldId": "UiPath.Financial.Invoice.Items.UnitPrice",
+              "FieldName": "Unit Price",
+              "IsMultiValue": false,
+              "Type": "Text",
+              "DeriveFieldsFormat": "",
+              "Components": [],
+              "SetValues": []
+            },
+            {
+              "FieldId": "UiPath.Financial.Invoice.Items.Amount",
+              "FieldName": "Amount",
+              "IsMultiValue": false,
+              "Type": "Text",
+              "DeriveFieldsFormat": "",
+              "Components": [],
+              "SetValues": []
+            }
+          ],
+          "SetValues": []
+        }
+      ]
+    }
+  ],
+  "Groups": [
+    {
+      "Name": "UiPath",
+      "Categories": [
+        "Financial"
+      ]
+    }
+  ],
+  "SupportedLanguages": [
+    {
+      "Name": "Undetermined Language",
+      "Code": "und"
+    },
+    {
+      "Name": "Bulgarian",
+      "Code": "bul"
+    },
+    {
+      "Name": "Cantonese",
+      "Code": "yue"
+    },
+    {
+      "Name": "Danish",
+      "Code": "dan"
+    },
+    {
+      "Name": "Dutch",
+      "Code": "nld"
+    },
+    {
+      "Name": "English",
+      "Code": "eng"
+    },
+    {
+      "Name": "French",
+      "Code": "fra"
+    },
+    {
+      "Name": "Georgian",
+      "Code": "kat"
+    },
+    {
+      "Name": "German",
+      "Code": "deu"
+    },
+    {
+      "Name": "Greek",
+      "Code": "ell"
+    },
+    {
+      "Name": "Hebrew",
+      "Code": "heb"
+    },
+    {
+      "Name": "Hindi",
+      "Code": "hin"
+    },
+    {
+      "Name": "Italian",
+      "Code": "ita"
+    },
+    {
+      "Name": "Japanese",
+      "Code": "jpn"
+    },
+    {
+      "Name": "Korean",
+      "Code": "kor"
+    },
+    {
+      "Name": "Macedonian",
+      "Code": "mkd"
+    },
+    {
+      "Name": "Mandarin",
+      "Code": "zho"
+    },
+    {
+      "Name": "Marathi",
+      "Code": "mar"
+    },
+    {
+      "Name": "Norwegian",
+      "Code": "nor"
+    },
+    {
+      "Name": "Polish",
+      "Code": "pol"
+    },
+    {
+      "Name": "Portuguese",
+      "Code": "por"
+    },
+    {
+      "Name": "Romanian",
+      "Code": "ron"
+    },
+    {
+      "Name": "Russian",
+      "Code": "rus"
+    },
+    {
+      "Name": "Serbian",
+      "Code": "srp"
+    },
+    {
+      "Name": "Spanish",
+      "Code": "spa"
+    },
+    {
+      "Name": "Swedish",
+      "Code": "swe"
+    },
+    {
+      "Name": "Telugu",
+      "Code": "tel"
+    }
+  ]
+}
