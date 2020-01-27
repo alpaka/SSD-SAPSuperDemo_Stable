@@ -63,7 +63,7 @@
           <ui:SendOutlookMail Account="{x:Null}" Bcc="{x:Null}" Cc="{x:Null}" MailMessage="{x:Null}" TimeoutMS="{x:Null}" Body="[tmp_body]" DisplayName="Send Outlook Mail Message" sap:VirtualizedContainerService.HintSize="334,145" sap2010:WorkflowViewState.IdRef="SendOutlookMail_1" IsBodyHtml="True" IsDraft="False" Subject="[&quot;Results Invoice Processing from &quot;+Now.ToString]" To="[mail_sendto]">
             <ui:SendOutlookMail.Files>
               <scg1:List x:TypeArguments="InArgument(x:String)" Capacity="4">
-                <InArgument x:TypeArguments="x:String">[dir_results+"logging.xlsx"]</InArgument>
+                <InArgument x:TypeArguments="x:String">[path.combine(dir_results,"logging.xlsx")]</InArgument>
               </scg1:List>
             </ui:SendOutlookMail.Files>
           </ui:SendOutlookMail>

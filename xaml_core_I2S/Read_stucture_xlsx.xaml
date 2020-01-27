@@ -103,7 +103,7 @@
             <x:Boolean x:Key="IsPinned">False</x:Boolean>
           </scg1:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[db_cleanup]" DisplayName="Read Range from XLSX" sap:VirtualizedContainerService.HintSize="338,87" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="dir_structure" WorkbookPath="[current_dir+&quot;\Default_parameters.xlsx&quot;]" />
+        <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[db_cleanup]" DisplayName="Read Range from XLSX" sap:VirtualizedContainerService.HintSize="338,87" sap2010:WorkflowViewState.IdRef="ReadRange_3" SheetName="I2S_dir_structure" WorkbookPath="[path.combine(current_dir,&quot;Default_parameters.xlsx&quot;)]" />
         <ui:MultipleAssign DisplayName="Get var-content from XLSX" sap:VirtualizedContainerService.HintSize="338,191" sap2010:WorkflowViewState.IdRef="MultipleAssign_4">
           <ui:MultipleAssign.AssignOperations>
             <scg1:List x:TypeArguments="ui:AssignOperation" Capacity="8">
@@ -150,7 +150,7 @@
             <x:Boolean x:Key="IsPinned">False</x:Boolean>
           </scg1:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[db_parameter]" DisplayName="Reading Directory Structure" sap:VirtualizedContainerService.HintSize="338,87" sap2010:WorkflowViewState.IdRef="ReadRange_2" SheetName="other_param" WorkbookPath="[current_dir+&quot;\Default_parameters.xlsx&quot;]" />
+        <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[db_parameter]" DisplayName="Reading Directory Structure" sap:VirtualizedContainerService.HintSize="338,87" sap2010:WorkflowViewState.IdRef="ReadRange_4" SheetName="I2S_other_param" WorkbookPath="[path.combine(current_dir,&quot;Default_parameters.xlsx&quot;)]" />
         <ui:MultipleAssign DisplayName="Get var-content from XLSX" sap:VirtualizedContainerService.HintSize="338,315" sap2010:WorkflowViewState.IdRef="MultipleAssign_6">
           <ui:MultipleAssign.AssignOperations>
             <scg1:List x:TypeArguments="ui:AssignOperation" Capacity="16">
