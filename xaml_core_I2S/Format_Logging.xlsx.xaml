@@ -82,7 +82,7 @@
       <x:Boolean x:Key="ShouldExpandAll">True</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <Sequence DisplayName="Format XLS a bit" sap:VirtualizedContainerService.HintSize="741,1758" sap2010:WorkflowViewState.IdRef="Sequence_3">
+  <Sequence DisplayName="Format XLS a bit - press ESC when debuging;-)" sap:VirtualizedContainerService.HintSize="741,1758" sap2010:WorkflowViewState.IdRef="Sequence_3">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>

@@ -93,7 +93,7 @@
       <x:Boolean x:Key="ShouldCollapseAll">False</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <Sequence DisplayName="Input Data to SAP" sap:VirtualizedContainerService.HintSize="1480,7088" sap2010:WorkflowViewState.IdRef="Sequence_9">
+  <Sequence DisplayName="Input Data to SAP Transction FB60" sap:VirtualizedContainerService.HintSize="1480,7088" sap2010:WorkflowViewState.IdRef="Sequence_9">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Boolean" Name="Vendor_found" />
     </Sequence.Variables>

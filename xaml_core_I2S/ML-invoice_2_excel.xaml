@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" this:Main.dir_docs="Doc_repository\docs2process\" this:Main.dir_results="Doc_repository\results\" this:Main.dir_docs_processed="Doc_repository\results\docs_processed" this:Main.launch_validation="True" this:Main.dir_docs_notprocessed="Doc_repository\results\docs_processed" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:p="http://schemas.uipath.com/workflow/activities/intelligentocr" xmlns:p1="http://schemas.uipath.com/workflow/activities/intelligentocr/classification" xmlns:p2="http://schemas.uipath.com/workflow/activities/document-processing-contracts/dom" xmlns:p3="http://schemas.uipath.com/workflow/activities/document-processing-contracts/classification" xmlns:p4="http://schemas.uipath.com/workflow/activities/document-processing-contracts/results" xmlns:p5="http://schemas.uipath.com/workflow/activities/intelligentocr/extraction" xmlns:p6="http://schemas.uipath.com/workflow/activities/document-processing-contracts/extraction" xmlns:p7="http://schemas.uipath.com/workflow/activities/intelligentocr/training" xmlns:p8="http://schemas.uipath.com/workflow/activities/document-processing-contracts/taxonomy" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:sd="clr-namespace:System.Drawing;assembly=System.Drawing" xmlns:sd1="clr-namespace:System.Data;assembly=System.Data" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:umad="clr-namespace:UiPath.MachineLearningExtractor.Activities.DataExtraction;assembly=UiPath.MachineLearningExtractor.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" this:Main.dir_docs="Doc_repository\docs2process\" this:Main.dir_results="Doc_repository\results\" this:Main.dir_docs_processed="Doc_repository\results\docs_processed" this:Main.launch_validation="True" this:Main.dir_docs_notprocessed="Doc_repository\results\docs_processed" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:p="http://schemas.uipath.com/workflow/activities/intelligentocr" xmlns:p1="http://schemas.uipath.com/workflow/activities/intelligentocr/classification" xmlns:p2="http://schemas.uipath.com/workflow/activities/document-processing-contracts/classification" xmlns:p3="http://schemas.uipath.com/workflow/activities/document-processing-contracts/dom" xmlns:p4="http://schemas.uipath.com/workflow/activities/document-processing-contracts/results" xmlns:p5="http://schemas.uipath.com/workflow/activities/intelligentocr/extraction" xmlns:p6="http://schemas.uipath.com/workflow/activities/document-processing-contracts/extraction" xmlns:p7="http://schemas.uipath.com/workflow/activities/intelligentocr/training" xmlns:p8="http://schemas.uipath.com/workflow/activities/document-processing-contracts/taxonomy" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:sd="clr-namespace:System.Drawing;assembly=System.Drawing" xmlns:sd1="clr-namespace:System.Data;assembly=System.Data" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:umad="clr-namespace:UiPath.MachineLearningExtractor.Activities.DataExtraction;assembly=UiPath.MachineLearningExtractor.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="dir_docs" Type="InArgument(x:String)" />
     <x:Property Name="dir_results" Type="InArgument(x:String)" />
@@ -77,7 +77,7 @@
       <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="version 1.1&#xA;this workflow transforms invoices &amp; Receipts (format does not matter, can be .PDF, TIF, JPG, ...) into structured Excel Files&#xA;It follows the DOCUMENT UNDERSTANDING Framework: Digitize &gt; Classify &gt; Extract &gt; Validate &gt; Train Classifiers &gt; Extract&#xA;The workflow is adjusted for working with &quot;Invoice_2_SAP&quot; hence it's tweaked a bit and on some positions more complicated than it needs to be;-)&#xA;" DisplayName="Main" sap:VirtualizedContainerService.HintSize="1737,6878" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="version 1.1&#xA;this workflow transforms invoices &amp; Receipts (format does not matter, can be .PDF, TIF, JPG, ...) into structured Excel Files&#xA;It follows the DOCUMENT UNDERSTANDING Framework: Digitize &gt; Classify &gt; Extract &gt; Validate &gt; Train Classifiers &gt; Extract&#xA;The workflow is adjusted for working with &quot;Invoice_2_SAP&quot; hence it's tweaked a bit and on some positions more complicated than it needs to be;-)&#xA;" DisplayName="Document Understanding Workflow - needs Internet access and API Key" sap:VirtualizedContainerService.HintSize="1737,6878" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="s:String[]" Name="docs" />
       <Variable x:TypeArguments="p8:DocumentTaxonomy" Name="taxonomy" />
@@ -95,6 +95,7 @@
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        <x:Boolean x:Key="IsPinned">False</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <Sequence DisplayName="Prepare Data" sap:VirtualizedContainerService.HintSize="1695,114" sap2010:WorkflowViewState.IdRef="Sequence_2">
@@ -145,7 +146,7 @@
           <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="1659,5031" sap2010:WorkflowViewState.IdRef="Sequence_3">
             <Sequence.Variables>
               <Variable x:TypeArguments="ui:GenericValue" Name="documentName" />
-              <Variable x:TypeArguments="p2:Document" Name="dom" />
+              <Variable x:TypeArguments="p3:Document" Name="dom" />
               <Variable x:TypeArguments="x:String" Name="text" />
               <Variable x:TypeArguments="p4:ExtractionResult" Name="extractionResults" />
               <Variable x:TypeArguments="p4:ClassificationResult[]" Name="classification" />
@@ -200,16 +201,16 @@
               <p1:ClassifyDocumentScope.Classifiers>
                 <p1:KeywordBasedClassifier HumanValidatedData="{x:Null}" LearningData="{x:Null}" DisplayName="Keyword Based Classifier" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="KeywordBasedClassifier_1" LearningFilePath="DocumentProcessing\keywordLearning.json" PersistenceId="UI375731c3ffb144a9b91b2ccb23c46bee">
                   <p1:KeywordBasedClassifier.ClassifierResult>
-                    <OutArgument x:TypeArguments="p3:ClassifierResult">
-                      <DelegateArgumentReference x:TypeArguments="p3:ClassifierResult">
-                        <DelegateOutArgument x:TypeArguments="p3:ClassifierResult" Name="ClassificationResult" />
+                    <OutArgument x:TypeArguments="p2:ClassifierResult">
+                      <DelegateArgumentReference x:TypeArguments="p2:ClassifierResult">
+                        <DelegateOutArgument x:TypeArguments="p2:ClassifierResult" Name="ClassificationResult" />
                       </DelegateArgumentReference>
                     </OutArgument>
                   </p1:KeywordBasedClassifier.ClassifierResult>
                   <p1:KeywordBasedClassifier.DocumentObjectModel>
-                    <InArgument x:TypeArguments="p2:Document">
-                      <DelegateArgumentValue x:TypeArguments="p2:Document">
-                        <DelegateInArgument x:TypeArguments="p2:Document" Name="DocumentObjectModel" />
+                    <InArgument x:TypeArguments="p3:Document">
+                      <DelegateArgumentValue x:TypeArguments="p3:Document">
+                        <DelegateInArgument x:TypeArguments="p3:Document" Name="DocumentObjectModel" />
                       </DelegateArgumentValue>
                     </InArgument>
                   </p1:KeywordBasedClassifier.DocumentObjectModel>
@@ -228,9 +229,9 @@
                     </InArgument>
                   </p1:KeywordBasedClassifier.DocumentText>
                   <p1:KeywordBasedClassifier.DocumentTypes>
-                    <InArgument x:TypeArguments="p3:ClassifierDocumentType[]">
-                      <DelegateArgumentValue x:TypeArguments="p3:ClassifierDocumentType[]">
-                        <DelegateInArgument x:TypeArguments="p3:ClassifierDocumentType[]" Name="DocumentTypes" />
+                    <InArgument x:TypeArguments="p2:ClassifierDocumentType[]">
+                      <DelegateArgumentValue x:TypeArguments="p2:ClassifierDocumentType[]">
+                        <DelegateInArgument x:TypeArguments="p2:ClassifierDocumentType[]" Name="DocumentTypes" />
                       </DelegateArgumentValue>
                     </InArgument>
                   </p1:KeywordBasedClassifier.DocumentTypes>
@@ -330,9 +331,9 @@
                                 </InArgument>
                               </umad:MachineLearningExtractor.DocumentBounds>
                               <umad:MachineLearningExtractor.DocumentObjectModel>
-                                <InArgument x:TypeArguments="p2:Document">
-                                  <DelegateArgumentValue x:TypeArguments="p2:Document">
-                                    <DelegateInArgument x:TypeArguments="p2:Document" Name="DocumentObjectModel" />
+                                <InArgument x:TypeArguments="p3:Document">
+                                  <DelegateArgumentValue x:TypeArguments="p3:Document">
+                                    <DelegateInArgument x:TypeArguments="p3:Document" Name="DocumentObjectModel" />
                                   </DelegateArgumentValue>
                                 </InArgument>
                               </umad:MachineLearningExtractor.DocumentObjectModel>
@@ -374,9 +375,9 @@
                                 </InArgument>
                               </umad:MachineLearningExtractor.DocumentBounds>
                               <umad:MachineLearningExtractor.DocumentObjectModel>
-                                <InArgument x:TypeArguments="p2:Document">
-                                  <DelegateArgumentValue x:TypeArguments="p2:Document">
-                                    <DelegateInArgument x:TypeArguments="p2:Document" Name="DocumentObjectModel" />
+                                <InArgument x:TypeArguments="p3:Document">
+                                  <DelegateArgumentValue x:TypeArguments="p3:Document">
+                                    <DelegateInArgument x:TypeArguments="p3:Document" Name="DocumentObjectModel" />
                                   </DelegateArgumentValue>
                                 </InArgument>
                               </umad:MachineLearningExtractor.DocumentObjectModel>
@@ -479,7 +480,7 @@
                           <ActivityAction.Argument>
                             <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
                           </ActivityAction.Argument>
-                          <Sequence sap:VirtualizedContainerService.HintSize="304,253" sap2010:WorkflowViewState.IdRef="Sequence_28">
+                          <Sequence sap:VirtualizedContainerService.HintSize="304,250" sap2010:WorkflowViewState.IdRef="Sequence_28">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -558,9 +559,9 @@
                           <p7:TrainClassifiersScope.Trainables>
                             <p7:KeywordBasedClassifierTrainer LearningData="{x:Null}" DisplayName="Keyword Based Classifier Trainer" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="KeywordBasedClassifierTrainer_1" LearningFilePath="DocumentProcessing\keywordLearning.json" PersistenceId="UIf2a13276c3be4d2aba6876f9821cfdbd">
                               <p7:KeywordBasedClassifierTrainer.DocumentObjectModel>
-                                <InArgument x:TypeArguments="p2:Document">
-                                  <DelegateArgumentValue x:TypeArguments="p2:Document">
-                                    <DelegateInArgument x:TypeArguments="p2:Document" Name="DocumentObjectModel" />
+                                <InArgument x:TypeArguments="p3:Document">
+                                  <DelegateArgumentValue x:TypeArguments="p3:Document">
+                                    <DelegateInArgument x:TypeArguments="p3:Document" Name="DocumentObjectModel" />
                                   </DelegateArgumentValue>
                                 </InArgument>
                               </p7:KeywordBasedClassifierTrainer.DocumentObjectModel>

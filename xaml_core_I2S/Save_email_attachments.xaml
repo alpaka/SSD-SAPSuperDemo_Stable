@@ -48,7 +48,7 @@
       <AssemblyReference>WindowsBase</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Save attachments" sap:VirtualizedContainerService.HintSize="934,2205" sap2010:WorkflowViewState.IdRef="Sequence_6">
+  <Sequence DisplayName="Save attachments which are suited for the later following Workflow with ML" sap:VirtualizedContainerService.HintSize="934,2205" sap2010:WorkflowViewState.IdRef="Sequence_6">
     <Sequence.Variables>
       <Variable x:TypeArguments="s:String[]" Name="files_to_delete" />
       <Variable x:TypeArguments="x:Int32" Name="attachment_count" />
