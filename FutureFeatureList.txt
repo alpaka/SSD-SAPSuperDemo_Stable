@@ -1,0 +1,13 @@
+General:
+- choice menu at the very beginning for various Options (Invoice2SAP, Purchase Orders, ...)
+
+Purchasing part:
+- Add the Purchasing SAP Part which demonstrates HITL & Word filling (ECB POC)
+
+
+further ideas:
+- Chatbot integration (maybe with Purchasing)
+- email classification (before Invoice2SAP?)
+- include GO SAP Components 
+- SAPBAPI flow
+

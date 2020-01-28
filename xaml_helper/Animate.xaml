@@ -7,7 +7,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>553,809</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>553,910</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Animate_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="21">
@@ -57,7 +57,7 @@
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Animate" sap:VirtualizedContainerService.HintSize="533,749" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Animate" sap:VirtualizedContainerService.HintSize="533,850" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Int32" Name="tmp_handle" />
     </Sequence.Variables>
@@ -66,6 +66,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
+    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="491,61" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[text]" />
     <If Condition="[handle &lt; 0]" sap:VirtualizedContainerService.HintSize="491,657" sap2010:WorkflowViewState.IdRef="If_1">
       <If.Else>
         <Sequence sap:VirtualizedContainerService.HintSize="346,509" sap2010:WorkflowViewState.IdRef="Sequence_3">

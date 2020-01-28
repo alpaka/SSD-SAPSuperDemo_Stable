@@ -1,5 +1,5 @@
 {
-  "name": "SSD_SAPSuperDemo_v.1.55_Stable",
+  "name": "SSD_SAPSuperDemo_v.1.56_Stable",
   "description": "This Workflow processes Invoices via UiPath ML services. \r\nIt can (asked to the user):\r\n-take the documents from email or folder\r\n-present validation station\r\n-enter into SAP \r\n-send results via email",
   "main": "Main_I2S.xaml",
   "dependencies": {
