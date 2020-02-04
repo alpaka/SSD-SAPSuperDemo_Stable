@@ -1,8 +1,9 @@
 {
-  "name": "Invoice2SAP_v.1.56_Stable",
+  "name": "Invoice2SAP",
   "description": "This Workflow processes Invoices via UiPath ML services. \r\nIt can (asked to the user):\r\n-take the documents from email or folder\r\n-present validation station\r\n-enter into SAP \r\n-send results via email",
   "main": "Main_I2S.xaml",
   "dependencies": {
+    "DSF": "[1.0.4]",
     "UiPath.Excel.Activities": "[2.8.0-preview]",
     "UiPath.Form.Activities": "[1.0.1]",
     "UiPath.IntelligentOCR.Activities": "[4.2.0-preview]",
@@ -17,7 +18,6 @@
   "studioVersion": "19.9.0.87",
   "projectVersion": "1.4.5",
   "runtimeOptions": {
-    "exceptionHandlerWorkflow": "GlobalHandler.xaml",
     "autoDispose": false,
     "isPausable": true,
     "requiresUserInteraction": true,
