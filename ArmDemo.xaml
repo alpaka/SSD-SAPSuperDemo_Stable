@@ -1,15 +1,15 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="ArmDemo" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:d="clr-namespace:DSF;assembly=DSF" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mv="clr-namespace:Microsoft.VisualBasic;assembly=Microsoft.VisualBasic, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:s="clr-namespace:System;assembly=mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" xmlns:s1="clr-namespace:System;assembly=mscorlib" xmlns:s2="clr-namespace:System;assembly=System" xmlns:sa="clr-namespace:System.Activities;assembly=System.Activities" xmlns:sae="clr-namespace:System.Activities.Expressions;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sas="clr-namespace:System.Activities.Statements;assembly=System.Activities" xmlns:sc="clr-namespace:System.Collections;assembly=mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" xmlns:sc1="clr-namespace:System.Collections;assembly=mscorlib" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" xmlns:scg1="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:scg2="clr-namespace:System.Collections.Generic;assembly=System" xmlns:sd="clr-namespace:System.Data;assembly=System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" xmlns:sd1="clr-namespace:System.Data;assembly=System.Data.DataSetExtensions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" xmlns:sd2="clr-namespace:System.Diagnostics;assembly=System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" xmlns:sd3="clr-namespace:System.Drawing;assembly=System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" xmlns:sd4="clr-namespace:System.Data;assembly=System.Data" xmlns:si="clr-namespace:System.IO;assembly=mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" xmlns:sl="clr-namespace:System.Linq;assembly=System.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" xmlns:snm="clr-namespace:System.Net.Mail;assembly=System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" xmlns:sx="clr-namespace:System.Xml;assembly=System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" xmlns:sxl="clr-namespace:System.Xml.Linq;assembly=System.Xml.Linq, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" xmlns:this="clr-namespace:" xmlns:uc="clr-namespace:UiPath.Core;assembly=UiPath.System.Activities" xmlns:uc1="clr-namespace:UiPath.Core;assembly=UiPath.UiAutomation.Activities" xmlns:uca="clr-namespace:UiPath.Core.Activities;assembly=UiPath.System.Activities" xmlns:uca1="clr-namespace:UiPath.Core.Activities;assembly=UiPath.UiAutomation.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="ArmDemo" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:d="clr-namespace:DSF;assembly=DSF" xmlns:do="clr-namespace:DSF.Outlook;assembly=DSF" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mv="clr-namespace:Microsoft.VisualBasic;assembly=Microsoft.VisualBasic, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:s="clr-namespace:System;assembly=mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" xmlns:s1="clr-namespace:System;assembly=mscorlib" xmlns:s2="clr-namespace:System;assembly=System" xmlns:sa="clr-namespace:System.Activities;assembly=System.Activities" xmlns:sae="clr-namespace:System.Activities.Expressions;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sas="clr-namespace:System.Activities.Statements;assembly=System.Activities" xmlns:sc="clr-namespace:System.Collections;assembly=mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" xmlns:sc1="clr-namespace:System.Collections;assembly=mscorlib" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" xmlns:scg1="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:scg2="clr-namespace:System.Collections.Generic;assembly=System" xmlns:sd="clr-namespace:System.Data;assembly=System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" xmlns:sd1="clr-namespace:System.Data;assembly=System.Data.DataSetExtensions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" xmlns:sd2="clr-namespace:System.Diagnostics;assembly=System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" xmlns:sd3="clr-namespace:System.Drawing;assembly=System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" xmlns:sd4="clr-namespace:System.Data;assembly=System.Data" xmlns:si="clr-namespace:System.IO;assembly=mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" xmlns:sl="clr-namespace:System.Linq;assembly=System.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" xmlns:snm="clr-namespace:System.Net.Mail;assembly=System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" xmlns:sx="clr-namespace:System.Xml;assembly=System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" xmlns:sxl="clr-namespace:System.Xml.Linq;assembly=System.Xml.Linq, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" xmlns:this="clr-namespace:" xmlns:uc="clr-namespace:UiPath.Core;assembly=UiPath.System.Activities" xmlns:uc1="clr-namespace:UiPath.Core;assembly=UiPath.UiAutomation.Activities" xmlns:uca="clr-namespace:UiPath.Core.Activities;assembly=UiPath.System.Activities" xmlns:uca1="clr-namespace:UiPath.Core.Activities;assembly=UiPath.UiAutomation.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="Config" Type="InArgument(njl:JObject)" />
   </x:Members>
   <this:ArmDemo.Config>
     <InArgument x:TypeArguments="njl:JObject" />
   </this:ArmDemo.Config>
-  <sap:VirtualizedContainerService.HintSize>649.777777777778,2302.22222222222</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>788,1768.88888888889</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <mva:VisualBasic.Settings>Assembly references and imported namespaces for internal implementation</mva:VisualBasic.Settings>
   <TextExpression.NamespacesForImplementation>
-    <scg1:List x:TypeArguments="x:String" Capacity="20">
+    <scg1:List x:TypeArguments="x:String" Capacity="30">
       <x:String>UiPath.Core</x:String>
       <x:String>UiPath.Core.Activities</x:String>
       <x:String>System</x:String>
@@ -23,10 +23,13 @@
       <x:String>Newtonsoft.Json.Linq</x:String>
       <x:String>Newtonsoft.Json</x:String>
       <x:String>Microsoft.Office.Interop.Outlook</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Diagnostics</x:String>
     </scg1:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg1:List x:TypeArguments="AssemblyReference" Capacity="32">
+    <scg1:List x:TypeArguments="AssemblyReference" Capacity="19">
       <AssemblyReference>UiPath.System.Activities</AssemblyReference>
       <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -48,7 +51,7 @@
       <AssemblyReference>UiPath.Mail</AssemblyReference>
     </scg1:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="ArmDemo" sap:VirtualizedContainerService.HintSize="629.777777777778,2202.22222222222" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="ArmDemo" sap:VirtualizedContainerService.HintSize="768,1708.88888888889" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd4:DataTable" Name="settingsTable" />
       <Variable x:TypeArguments="x:String" Name="sapUser" />
@@ -58,42 +61,31 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg1:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <If Condition="[Config Is Nothing]" sap:VirtualizedContainerService.HintSize="588,211.111111111111" sap2010:WorkflowViewState.IdRef="If_1">
+    <If Condition="[Config Is Nothing]" sap:VirtualizedContainerService.HintSize="726.222222222222,211.111111111111" sap2010:WorkflowViewState.IdRef="If_1">
       <If.Then>
         <d:LoadLocalConfig Config="[Config]" ConfigPath="C:\UiPath\config\dsf.json" sap:VirtualizedContainerService.HintSize="200,22.2222222222222" sap2010:WorkflowViewState.IdRef="LoadLocalConfig_1" />
       </If.Then>
     </If>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="588,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_1" Message="[&quot;Demo not armed yet. Running arming&quot;]" />
-    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="588,258.222222222222" sap2010:WorkflowViewState.IdRef="CommentOut_1">
-      <ui:CommentOut.Body>
-        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="375.555555555556,180" sap2010:WorkflowViewState.IdRef="Sequence_6">
-          <sap:WorkflowViewStateService.ViewState>
-            <scg1:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-            </scg1:Dictionary>
-          </sap:WorkflowViewStateService.ViewState>
-          <ui:InvokeProcess ContinueOnError="{x:Null}" DisplayName="Invoke Process" sap:VirtualizedContainerService.HintSize="333.777777777778,87.5555555555556" sap2010:WorkflowViewState.IdRef="InvokeProcess_1" ProcessName="DSF_Init_SAP">
-            <ui:InvokeProcess.Arguments>
-              <scg1:Dictionary x:TypeArguments="x:String, Argument" />
-            </ui:InvokeProcess.Arguments>
-            <sap:WorkflowViewStateService.ViewState>
-              <scg1:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-              </scg1:Dictionary>
-            </sap:WorkflowViewStateService.ViewState>
-          </ui:InvokeProcess>
-        </Sequence>
-      </ui:CommentOut.Body>
-    </ui:CommentOut>
-    <ui:ReadRange AddHeaders="True" DataTable="[settingsTable]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="588,87.5555555555556" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="I2S_other_param" WorkbookPath="default_parameters.xlsx">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="726.222222222222,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_1" Message="[&quot;Demo not armed yet. Running arming&quot;]" />
+    <ui:InvokeProcess ContinueOnError="{x:Null}" DisplayName="Invoke Process" sap:VirtualizedContainerService.HintSize="726.222222222222,87.5555555555556" sap2010:WorkflowViewState.IdRef="InvokeProcess_1" ProcessName="DSF_Init_SAP">
+      <ui:InvokeProcess.Arguments>
+        <scg1:Dictionary x:TypeArguments="x:String, Argument" />
+      </ui:InvokeProcess.Arguments>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg1:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        </scg1:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:InvokeProcess>
+    <ui:ReadRange AddHeaders="True" DataTable="[settingsTable]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="726.222222222222,87.5555555555556" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="I2S_other_param" WorkbookPath="default_parameters.xlsx">
       <ui:ReadRange.Range>
         <InArgument x:TypeArguments="x:String">
           <Literal x:TypeArguments="x:String" Value="" />
         </InArgument>
       </ui:ReadRange.Range>
     </ui:ReadRange>
-    <ui:GetRobotCredential Password="{x:Null}" TimeoutMS="{x:Null}" AssetName="DSF_SAPLogin" DisplayName="Get Credential" sap:VirtualizedContainerService.HintSize="588,22.2222222222222" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Username="[sapUser]" />
-    <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[settingsTable]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="588,479.111111111111" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+    <ui:GetRobotCredential Password="{x:Null}" TimeoutMS="{x:Null}" AssetName="DSF_SAPLogin" DisplayName="Get Credential" sap:VirtualizedContainerService.HintSize="726.222222222222,22.2222222222222" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Username="[sapUser]" />
+    <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[settingsTable]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="726.222222222222,479.111111111111" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
       <ui:ForEachRow.Body>
         <ActivityAction x:TypeArguments="sd4:DataRow">
           <ActivityAction.Argument>
@@ -158,7 +150,7 @@
         </ActivityAction>
       </ui:ForEachRow.Body>
     </ui:ForEachRow>
-    <ui:ExcelApplicationScope Password="{x:Null}" sap2010:Annotation.AnnotationText="The Workbook version of Write Range doesn't work for an unknown reason" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="588,334.222222222222" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_2" WorkbookPath="default_parameters.xlsx">
+    <ui:ExcelApplicationScope Password="{x:Null}" sap2010:Annotation.AnnotationText="The Workbook version of Write Range doesn't work for an unknown reason" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="726.222222222222,334.222222222222" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_2" WorkbookPath="default_parameters.xlsx">
       <ui:ExcelApplicationScope.Body>
         <ActivityAction x:TypeArguments="ui:WorkbookApplication">
           <ActivityAction.Argument>
@@ -170,7 +162,7 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg1:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:ExcelWriteRange AddHeaders="False" DataTable="[settingsTable]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="333.777777777778,87.5555555555556" sap2010:WorkflowViewState.IdRef="ExcelWriteRange_1" SheetName="I2S_other_param" StartingCell="A1" />
+            <ui:ExcelWriteRange AddHeaders="True" DataTable="[settingsTable]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="333.777777777778,87.5555555555556" sap2010:WorkflowViewState.IdRef="ExcelWriteRange_1" SheetName="I2S_other_param" StartingCell="A1" />
           </Sequence>
         </ActivityAction>
       </ui:ExcelApplicationScope.Body>
@@ -180,29 +172,10 @@
         </scg1:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:ExcelApplicationScope>
-    <Sequence DisplayName="Arm_CreateExampleEmails" sap:VirtualizedContainerService.HintSize="588,342.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_4">
-      <sap:WorkflowViewStateService.ViewState>
-        <scg1:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-        </scg1:Dictionary>
-      </sap:WorkflowViewStateService.ViewState>
-      <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="306.222222222222,250.222222222222" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[Directory.EnumerateFiles(&quot;DEMO_DOCUMENTS\email_samples&quot;, &quot;*.msg&quot;)]">
-        <ui:ForEach.Body>
-          <ActivityAction x:TypeArguments="x:String">
-            <ActivityAction.Argument>
-              <DelegateInArgument x:TypeArguments="x:String" Name="item" />
-            </ActivityAction.Argument>
-            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="241.777777777778,114.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_5">
-              <sap:WorkflowViewStateService.ViewState>
-                <scg1:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                </scg1:Dictionary>
-              </sap:WorkflowViewStateService.ViewState>
-              <d:ImportOutlookMSGFile FolderName="Inbox\Invoice2SAP" sap:VirtualizedContainerService.HintSize="200,22.2222222222222" sap2010:WorkflowViewState.IdRef="ImportOutlookMSGFile_1" MSGPath="[Path.GetFullPath(item)]" />
-            </Sequence>
-          </ActivityAction>
-        </ui:ForEach.Body>
-      </ui:ForEach>
-    </Sequence>
+    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke ArmCreateExampleEmails workflow" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="ArmCreateExampleEmails.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <scg1:Dictionary x:TypeArguments="x:String, Argument" />
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
   </Sequence>
 </Activity>

@@ -15,9 +15,13 @@
     <x:Property Name="asset_orch_found" Type="InOutArgument(x:Boolean)" />
     <x:Property Name="SAP_Password" Type="InOutArgument(ss:SecureString)" />
     <x:Property Name="getfromasset" Type="InOutArgument(x:Boolean)" />
-    <x:Property Name="enterinSAP" Type="InOutArgument(x:Boolean)" />
+    <x:Property Name="mail_results" Type="OutArgument(x:Boolean)" />
+    <x:Property Name="enter_in_sap" Type="OutArgument(x:Boolean)" />
+    <x:Property Name="display_animation" Type="OutArgument(x:Boolean)" />
+    <x:Property Name="display_form" Type="OutArgument(x:Boolean)" />
+    <x:Property Name="use_validation_station" Type="OutArgument(x:Boolean)" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>636,599</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>994.666666666667,1560</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <mva:VisualBasic.Settings>Assembly references and imported namespaces for internal implementation</mva:VisualBasic.Settings>
   <TextExpression.NamespacesForImplementation>
@@ -31,6 +35,8 @@
       <x:String>System.Diagnostics</x:String>
       <x:String>System.Security</x:String>
       <x:String>UiPath.Excel</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
     </scg1:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -54,7 +60,7 @@
       <AssemblyReference>UiPath.Excel</AssemblyReference>
     </scg1:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Read Variables &amp; directory structure from &quot;DIRECTORY_STRUCTURE.XLSX&quot; - delete all files in this directory if advised" sap:VirtualizedContainerService.HintSize="616,539" sap2010:WorkflowViewState.IdRef="Sequence_30">
+  <Sequence DisplayName="Read Variables &amp; directory structure from &quot;DIRECTORY_STRUCTURE.XLSX&quot; - delete all files in this directory if advised" sap:VirtualizedContainerService.HintSize="974.666666666667,1500" sap2010:WorkflowViewState.IdRef="Sequence_30">
     <Sequence.Variables>
       <Variable x:TypeArguments="s1:String[]" Name="files_to_delete" />
       <Variable x:TypeArguments="sd4:DataTable" Name="db_cleanup" />
@@ -66,8 +72,8 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg1:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:KillProcess ContinueOnError="{x:Null}" Process="{x:Null}" DisplayName="Kill Process EXCEL.EXE" sap:VirtualizedContainerService.HintSize="574,22" sap2010:WorkflowViewState.IdRef="KillProcess_1" ProcessName="Excel" />
-    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="574,51" sap2010:WorkflowViewState.IdRef="MultipleAssign_14">
+    <ui:KillProcess ContinueOnError="{x:Null}" Process="{x:Null}" DisplayName="Kill Process EXCEL.EXE" sap:VirtualizedContainerService.HintSize="932.888888888889,22.2222222222222" sap2010:WorkflowViewState.IdRef="KillProcess_1" ProcessName="Excel" />
+    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="932.888888888889,52.8888888888889" sap2010:WorkflowViewState.IdRef="MultipleAssign_14">
       <ui:MultipleAssign.AssignOperations>
         <scg1:List x:TypeArguments="ui:AssignOperation" Capacity="4">
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_37">
@@ -95,16 +101,45 @@
         </scg1:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:MultipleAssign>
-    <Parallel DisplayName="Reading the Parameters from the XLS" sap:VirtualizedContainerService.HintSize="574,112" sap2010:WorkflowViewState.IdRef="Parallel_1">
-      <Sequence DisplayName="Reading Directory Structure" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_34">
+    <Parallel DisplayName="Reading the Parameters from the XLS" sap:VirtualizedContainerService.HintSize="932.888888888889,1066.66666666667" sap2010:WorkflowViewState.IdRef="Parallel_1">
+      <Sequence DisplayName="Reading Directory Structure" sap:VirtualizedContainerService.HintSize="379.555555555556,1020.44444444444" sap2010:WorkflowViewState.IdRef="Sequence_34">
+        <Sequence.Variables>
+          <Variable x:TypeArguments="x:String" Name="KeyColumnName" />
+          <Variable x:TypeArguments="x:String" Name="ValueColumnName" />
+          <Variable x:TypeArguments="scg1:Dictionary(x:String, x:Object)" Name="ValueDict" />
+        </Sequence.Variables>
         <sap:WorkflowViewStateService.ViewState>
           <scg1:Dictionary x:TypeArguments="x:String, x:Object">
-            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             <x:Boolean x:Key="IsPinned">False</x:Boolean>
           </scg1:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[db_cleanup]" DisplayName="Read Range from XLSX" sap:VirtualizedContainerService.HintSize="338,87" sap2010:WorkflowViewState.IdRef="ReadRange_3" SheetName="I2S_dir_structure" WorkbookPath="[path.combine(current_dir,&quot;Default_parameters.xlsx&quot;)]" />
-        <ui:MultipleAssign DisplayName="Get var-content from XLSX" sap:VirtualizedContainerService.HintSize="338,191" sap2010:WorkflowViewState.IdRef="MultipleAssign_4">
+        <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[db_cleanup]" DisplayName="Read Range from XLSX" sap:VirtualizedContainerService.HintSize="337.777777777778,87.5555555555556" sap2010:WorkflowViewState.IdRef="ReadRange_3" SheetName="I2S_dir_structure" WorkbookPath="[path.combine(current_dir,&quot;Default_parameters.xlsx&quot;)]" />
+        <Assign sap:VirtualizedContainerService.HintSize="337.777777777778,60.4444444444444" sap2010:WorkflowViewState.IdRef="Assign_17">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:String">[KeyColumnName]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:String">variable</InArgument>
+          </Assign.Value>
+        </Assign>
+        <Assign sap:VirtualizedContainerService.HintSize="337.777777777778,60.4444444444444" sap2010:WorkflowViewState.IdRef="Assign_18">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:String">[ValueColumnName]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:String">path</InArgument>
+          </Assign.Value>
+        </Assign>
+        <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke DatatableAsDict workflow" sap:VirtualizedContainerService.HintSize="337.777777777778,87.5555555555556" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="DatatableAsDict.xaml">
+          <ui:InvokeWorkflowFile.Arguments>
+            <InArgument x:TypeArguments="x:String" x:Key="KeyColumnName">[KeyColumnName]</InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="ValueColumnName">[ValueColumnName]</InArgument>
+            <OutArgument x:TypeArguments="scg1:Dictionary(x:String, x:Object)" x:Key="ValueDict">[ValueDict]</OutArgument>
+            <InArgument x:TypeArguments="sd4:DataTable" x:Key="dt">[db_cleanup]</InArgument>
+          </ui:InvokeWorkflowFile.Arguments>
+        </ui:InvokeWorkflowFile>
+        <ui:MultipleAssign DisplayName="Get var-content from XLSX" sap:VirtualizedContainerService.HintSize="337.777777777778,192" sap2010:WorkflowViewState.IdRef="MultipleAssign_4">
           <ui:MultipleAssign.AssignOperations>
             <scg1:List x:TypeArguments="ui:AssignOperation" Capacity="8">
               <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_7">
@@ -112,7 +147,7 @@
                   <OutArgument x:TypeArguments="x:String">[dir_docs]</OutArgument>
                 </ui:AssignOperation.To>
                 <ui:AssignOperation.Value>
-                  <InArgument x:TypeArguments="x:String">[db_cleanup.Rows(0).Item(1).ToString]</InArgument>
+                  <InArgument x:TypeArguments="x:String">[ValueDict("dir_docs").ToString]</InArgument>
                 </ui:AssignOperation.Value>
               </ui:AssignOperation>
               <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_8">
@@ -120,7 +155,7 @@
                   <OutArgument x:TypeArguments="x:String">[dir_results]</OutArgument>
                 </ui:AssignOperation.To>
                 <ui:AssignOperation.Value>
-                  <InArgument x:TypeArguments="x:String">[db_cleanup.Rows(1).Item(1).ToString]</InArgument>
+                  <InArgument x:TypeArguments="x:String">[ValueDict("dir_results").ToString]</InArgument>
                 </ui:AssignOperation.Value>
               </ui:AssignOperation>
               <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_9">
@@ -128,7 +163,7 @@
                   <OutArgument x:TypeArguments="x:String">[dir_docs_processed]</OutArgument>
                 </ui:AssignOperation.To>
                 <ui:AssignOperation.Value>
-                  <InArgument x:TypeArguments="x:String">[db_cleanup.Rows(2).Item(1).ToString]</InArgument>
+                  <InArgument x:TypeArguments="x:String">[ValueDict("dir_docs").ToString]</InArgument>
                 </ui:AssignOperation.Value>
               </ui:AssignOperation>
               <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_11">
@@ -136,38 +171,67 @@
                   <OutArgument x:TypeArguments="x:String">[dir_docs_notprocessed]</OutArgument>
                 </ui:AssignOperation.To>
                 <ui:AssignOperation.Value>
-                  <InArgument x:TypeArguments="x:String">[db_cleanup.Rows(3).Item(1).ToString]</InArgument>
+                  <InArgument x:TypeArguments="x:String">[ValueDict("dir_docs_notprocessed").ToString]</InArgument>
                 </ui:AssignOperation.Value>
               </ui:AssignOperation>
             </scg1:List>
           </ui:MultipleAssign.AssignOperations>
         </ui:MultipleAssign>
       </Sequence>
-      <Sequence DisplayName="Reading all other Parameters" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_35">
+      <Sequence DisplayName="Reading all other Parameters" sap:VirtualizedContainerService.HintSize="379.555555555556,1020.44444444444" sap2010:WorkflowViewState.IdRef="Sequence_35">
+        <Sequence.Variables>
+          <Variable x:TypeArguments="scg1:Dictionary(x:String, x:Object)" Name="ValueDict" />
+          <Variable x:TypeArguments="x:String" Name="KeyColumnName" />
+          <Variable x:TypeArguments="x:String" Name="ValueColumnName" />
+        </Sequence.Variables>
         <sap:WorkflowViewStateService.ViewState>
           <scg1:Dictionary x:TypeArguments="x:String, x:Object">
-            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             <x:Boolean x:Key="IsPinned">False</x:Boolean>
           </scg1:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[db_parameter]" DisplayName="Reading Directory Structure" sap:VirtualizedContainerService.HintSize="338,87" sap2010:WorkflowViewState.IdRef="ReadRange_4" SheetName="I2S_other_param" WorkbookPath="[path.combine(current_dir,&quot;Default_parameters.xlsx&quot;)]" />
-        <ui:MultipleAssign DisplayName="Get var-content from XLSX" sap:VirtualizedContainerService.HintSize="338,315" sap2010:WorkflowViewState.IdRef="MultipleAssign_6">
+        <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[db_parameter]" DisplayName="Reading Directory Structure" sap:VirtualizedContainerService.HintSize="337.777777777778,87.5555555555556" sap2010:WorkflowViewState.IdRef="ReadRange_4" SheetName="I2S_other_param" WorkbookPath="[path.combine(current_dir,&quot;Default_parameters.xlsx&quot;)]" />
+        <Assign sap:VirtualizedContainerService.HintSize="337.777777777778,60.4444444444444" sap2010:WorkflowViewState.IdRef="Assign_14">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:String">[KeyColumnName]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:String">variable</InArgument>
+          </Assign.Value>
+        </Assign>
+        <Assign sap:VirtualizedContainerService.HintSize="337.777777777778,60.4444444444444" sap2010:WorkflowViewState.IdRef="Assign_15">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:String">[ValueColumnName]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:String">Default-Value</InArgument>
+          </Assign.Value>
+        </Assign>
+        <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke DatatableAsDict workflow" sap:VirtualizedContainerService.HintSize="337.777777777778,87.5555555555556" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="DatatableAsDict.xaml">
+          <ui:InvokeWorkflowFile.Arguments>
+            <InArgument x:TypeArguments="x:String" x:Key="KeyColumnName">[KeyColumnName]</InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="ValueColumnName">[ValueColumnName]</InArgument>
+            <OutArgument x:TypeArguments="scg1:Dictionary(x:String, x:Object)" x:Key="ValueDict">[ValueDict]</OutArgument>
+            <InArgument x:TypeArguments="sd4:DataTable" x:Key="dt">[db_parameter]</InArgument>
+          </ui:InvokeWorkflowFile.Arguments>
+        </ui:InvokeWorkflowFile>
+        <ui:MultipleAssign DisplayName="Get var-content from XLSX" sap:VirtualizedContainerService.HintSize="337.777777777778,472" sap2010:WorkflowViewState.IdRef="MultipleAssign_6">
           <ui:MultipleAssign.AssignOperations>
             <scg1:List x:TypeArguments="ui:AssignOperation" Capacity="16">
               <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_15">
                 <ui:AssignOperation.To>
-                  <OutArgument x:TypeArguments="x:String">[mail_folder]</OutArgument>
+                  <OutArgument x:TypeArguments="x:String">[SAP_username]</OutArgument>
                 </ui:AssignOperation.To>
                 <ui:AssignOperation.Value>
-                  <InArgument x:TypeArguments="x:String">[db_parameter.Rows(1).Item(1).ToString]</InArgument>
+                  <InArgument x:TypeArguments="x:String">[ValueDict("SAP_username").ToString]</InArgument>
                 </ui:AssignOperation.Value>
               </ui:AssignOperation>
               <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_16">
                 <ui:AssignOperation.To>
-                  <OutArgument x:TypeArguments="x:String">[SAP_username]</OutArgument>
+                  <OutArgument x:TypeArguments="x:String">[mail_folder]</OutArgument>
                 </ui:AssignOperation.To>
                 <ui:AssignOperation.Value>
-                  <InArgument x:TypeArguments="x:String">[db_parameter.Rows(0).Item(1).ToString]</InArgument>
+                  <InArgument x:TypeArguments="x:String">[ValueDict("mail_folder").ToString]</InArgument>
                 </ui:AssignOperation.Value>
               </ui:AssignOperation>
               <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_17">
@@ -175,7 +239,7 @@
                   <OutArgument x:TypeArguments="x:Boolean">[extract_from_email]</OutArgument>
                 </ui:AssignOperation.To>
                 <ui:AssignOperation.Value>
-                  <InArgument x:TypeArguments="x:Boolean">[convert.ToBoolean(db_parameter.Rows(2).Item(1))]</InArgument>
+                  <InArgument x:TypeArguments="x:Boolean">[convert.ToBoolean(ValueDict("extract_from_email"))]</InArgument>
                 </ui:AssignOperation.Value>
               </ui:AssignOperation>
               <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_18">
@@ -183,7 +247,7 @@
                   <OutArgument x:TypeArguments="x:Int32">[readmails]</OutArgument>
                 </ui:AssignOperation.To>
                 <ui:AssignOperation.Value>
-                  <InArgument x:TypeArguments="x:Int32">[Convert.ToInt32(db_parameter.Rows(3).Item(1))]</InArgument>
+                  <InArgument x:TypeArguments="x:Int32">[Convert.ToInt32(ValueDict("readmails"))]</InArgument>
                 </ui:AssignOperation.Value>
               </ui:AssignOperation>
               <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_19">
@@ -191,31 +255,71 @@
                   <OutArgument x:TypeArguments="x:String">[mail_sendto]</OutArgument>
                 </ui:AssignOperation.To>
                 <ui:AssignOperation.Value>
-                  <InArgument x:TypeArguments="x:String">[db_parameter.Rows(4).Item(1).tostring]</InArgument>
+                  <InArgument x:TypeArguments="x:String">[ValueDict("mail_sendto").tostring]</InArgument>
                 </ui:AssignOperation.Value>
               </ui:AssignOperation>
               <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_20">
                 <ui:AssignOperation.To>
-                  <OutArgument x:TypeArguments="x:Boolean">[format_xls]</OutArgument>
+                  <OutArgument x:TypeArguments="x:Boolean">[mail_results]</OutArgument>
                 </ui:AssignOperation.To>
                 <ui:AssignOperation.Value>
-                  <InArgument x:TypeArguments="x:Boolean">[convert.ToBoolean(db_parameter.Rows(5).Item(1))]</InArgument>
+                  <InArgument x:TypeArguments="x:Boolean">[convert.ToBoolean(ValueDict("mail_results"))]</InArgument>
                 </ui:AssignOperation.Value>
               </ui:AssignOperation>
               <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_21">
                 <ui:AssignOperation.To>
-                  <OutArgument x:TypeArguments="x:String">[asset_orch_login]</OutArgument>
+                  <OutArgument x:TypeArguments="x:Boolean">[format_xls]</OutArgument>
                 </ui:AssignOperation.To>
                 <ui:AssignOperation.Value>
-                  <InArgument x:TypeArguments="x:String">[db_parameter.Rows(6).Item(1).ToString]</InArgument>
+                  <InArgument x:TypeArguments="x:Boolean">[convert.ToBoolean(ValueDict("format_xls"))]</InArgument>
                 </ui:AssignOperation.Value>
               </ui:AssignOperation>
               <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_22">
                 <ui:AssignOperation.To>
+                  <OutArgument x:TypeArguments="x:String">[asset_orch_login]</OutArgument>
+                </ui:AssignOperation.To>
+                <ui:AssignOperation.Value>
+                  <InArgument x:TypeArguments="x:String">[ValueDict("asset_orch_login").tostring]</InArgument>
+                </ui:AssignOperation.Value>
+              </ui:AssignOperation>
+              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_39">
+                <ui:AssignOperation.To>
                   <OutArgument x:TypeArguments="x:String">[asset_orch_folder]</OutArgument>
                 </ui:AssignOperation.To>
                 <ui:AssignOperation.Value>
-                  <InArgument x:TypeArguments="x:String">[db_parameter.Rows(7).Item(1).ToString]</InArgument>
+                  <InArgument x:TypeArguments="x:String">[ValueDict("asset_orch_folder").tostring]</InArgument>
+                </ui:AssignOperation.Value>
+              </ui:AssignOperation>
+              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_40">
+                <ui:AssignOperation.To>
+                  <OutArgument x:TypeArguments="x:Boolean">[use_validation_station]</OutArgument>
+                </ui:AssignOperation.To>
+                <ui:AssignOperation.Value>
+                  <InArgument x:TypeArguments="x:Boolean">[Convert.ToBoolean(ValueDict("use_validation_station"))]</InArgument>
+                </ui:AssignOperation.Value>
+              </ui:AssignOperation>
+              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_41">
+                <ui:AssignOperation.To>
+                  <OutArgument x:TypeArguments="x:Boolean">[enter_in_sap]</OutArgument>
+                </ui:AssignOperation.To>
+                <ui:AssignOperation.Value>
+                  <InArgument x:TypeArguments="x:Boolean">[Convert.ToBoolean(ValueDict("enter_in_sap"))]</InArgument>
+                </ui:AssignOperation.Value>
+              </ui:AssignOperation>
+              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_42">
+                <ui:AssignOperation.To>
+                  <OutArgument x:TypeArguments="x:Boolean">[display_animation]</OutArgument>
+                </ui:AssignOperation.To>
+                <ui:AssignOperation.Value>
+                  <InArgument x:TypeArguments="x:Boolean">[Convert.ToBoolean(ValueDict("display_animation"))]</InArgument>
+                </ui:AssignOperation.Value>
+              </ui:AssignOperation>
+              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_43">
+                <ui:AssignOperation.To>
+                  <OutArgument x:TypeArguments="x:Boolean">[display_form]</OutArgument>
+                </ui:AssignOperation.To>
+                <ui:AssignOperation.Value>
+                  <InArgument x:TypeArguments="x:Boolean">[Convert.ToBoolean(ValueDict("display_form"))]</InArgument>
                 </ui:AssignOperation.Value>
               </ui:AssignOperation>
             </scg1:List>
@@ -223,7 +327,7 @@
         </ui:MultipleAssign>
       </Sequence>
     </Parallel>
-    <TryCatch DisplayName="Check if Asset is found on Orchestrator" sap:VirtualizedContainerService.HintSize="574,51" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+    <TryCatch DisplayName="Check if Asset is found on Orchestrator" sap:VirtualizedContainerService.HintSize="932.888888888889,52.8888888888889" sap2010:WorkflowViewState.IdRef="TryCatch_2">
       <sap:WorkflowViewStateService.ViewState>
         <scg1:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -263,7 +367,7 @@
         </Catch>
       </TryCatch.Catches>
     </TryCatch>
-    <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[db_cleanup]" DisplayName="For Each Row - check if DIR exist and should be purged?" sap:VirtualizedContainerService.HintSize="574,51" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+    <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[db_cleanup]" DisplayName="For Each Row - check if DIR exist and should be purged?" sap:VirtualizedContainerService.HintSize="932.888888888889,52.8888888888889" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
       <ui:ForEachRow.Body>
         <ActivityAction x:TypeArguments="sd4:DataRow">
           <ActivityAction.Argument>
