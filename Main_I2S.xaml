@@ -5,10 +5,10 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>2680,2085.33333333333</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>2680,2045.33333333333</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="28">
+    <scg:List x:TypeArguments="x:String" Capacity="56">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -37,10 +37,11 @@
       <x:String>UiPath.DocumentProcessing.Contracts.Results</x:String>
       <x:String>System.Security</x:String>
       <x:String>Newtonsoft.Json.Linq</x:String>
+      <x:String>Microsoft.Office.Interop.Outlook</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="26">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="52">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -67,6 +68,7 @@
       <AssemblyReference>System.Data.Entity</AssemblyReference>
       <AssemblyReference>System.Collections.Immutable</AssemblyReference>
       <AssemblyReference>Newtonsoft.Json</AssemblyReference>
+      <AssemblyReference>Microsoft.Office.Interop.Outlook</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <Flowchart sap2010:Annotation.AnnotationText="Author: Ludwig Wilhelm and Thomas Endt&#xA;Maintainer: Stefan Reutter&#xA;&#xA;" DisplayName="Invoice_2_SAP " sap:VirtualizedContainerService.HintSize="2660,1985.33333333333" sap2010:WorkflowViewState.IdRef="Flowchart_1">
@@ -836,12 +838,18 @@
         <FlowStep x:Name="__ReferenceID29">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <av:Point x:Key="ShapeLocation">430,178.888888888889</av:Point>
+              <av:Point x:Key="ShapeLocation">430,198.888888888889</av:Point>
               <av:Size x:Key="ShapeSize">200,22.2222222222222</av:Size>
-              <av:PointCollection x:Key="ConnectorLocation">630,190 660,190 660,200 690,200</av:PointCollection>
+              <av:PointCollection x:Key="ConnectorLocation">630,210 660,210 660,200 690,200</av:PointCollection>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <do:ShowOutlookMailFolder FolderPath="Inbox\Invoice2SAP" sap:VirtualizedContainerService.HintSize="200,22.2222222222222" sap2010:WorkflowViewState.IdRef="ShowOutlookMailFolder_1" />
+          <do:ShowOutlookMailFolder FolderPath="Inbox\Invoice2SAP" sap:VirtualizedContainerService.HintSize="200,22.2222222222222" sap2010:WorkflowViewState.IdRef="ShowOutlookMailFolder_2">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </do:ShowOutlookMailFolder>
           <FlowStep.Next>
             <x:Reference>__ReferenceID25</x:Reference>
           </FlowStep.Next>
@@ -852,7 +860,7 @@
           <av:Point x:Key="ShapeLocation">294.888888888889,126.444444444444</av:Point>
           <av:Size x:Key="ShapeSize">70.2222222222222,87.1111111111111</av:Size>
           <av:PointCollection x:Key="armConnector">294.888888888889,170 130,170 130,205.777777777778</av:PointCollection>
-          <av:PointCollection x:Key="Default">365.111111111111,170 395.111111111111,170 395.111111111111,190 430,190</av:PointCollection>
+          <av:PointCollection x:Key="Default">365.111111111111,170 395.111111111111,170 395.111111111111,210 430,210</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <FlowStep x:Key="arm" x:Name="__ReferenceID26">
