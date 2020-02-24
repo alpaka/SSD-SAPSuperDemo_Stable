@@ -5,11 +5,11 @@
   <this:ArmDemo.Config>
     <InArgument x:TypeArguments="njl:JObject" />
   </this:ArmDemo.Config>
-  <sap:VirtualizedContainerService.HintSize>788,1768.88888888889</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>649.777777777778,1920.88888888889</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <mva:VisualBasic.Settings>Assembly references and imported namespaces for internal implementation</mva:VisualBasic.Settings>
   <TextExpression.NamespacesForImplementation>
-    <scg1:List x:TypeArguments="x:String" Capacity="30">
+    <scg1:List x:TypeArguments="x:String" Capacity="16">
       <x:String>UiPath.Core</x:String>
       <x:String>UiPath.Core.Activities</x:String>
       <x:String>System</x:String>
@@ -51,23 +51,22 @@
       <AssemblyReference>UiPath.Mail</AssemblyReference>
     </scg1:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="ArmDemo" sap:VirtualizedContainerService.HintSize="768,1708.88888888889" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="ArmDemo" sap:VirtualizedContainerService.HintSize="629.777777777778,1820.88888888889" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd4:DataTable" Name="settingsTable" />
-      <Variable x:TypeArguments="x:String" Name="sapUser" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg1:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg1:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <If Condition="[Config Is Nothing]" sap:VirtualizedContainerService.HintSize="726.222222222222,211.111111111111" sap2010:WorkflowViewState.IdRef="If_1">
+    <If Condition="[Config Is Nothing]" sap:VirtualizedContainerService.HintSize="588,211.111111111111" sap2010:WorkflowViewState.IdRef="If_1">
       <If.Then>
         <d:LoadLocalConfig Config="[Config]" ConfigPath="C:\UiPath\config\dsf.json" sap:VirtualizedContainerService.HintSize="200,22.2222222222222" sap2010:WorkflowViewState.IdRef="LoadLocalConfig_1" />
       </If.Then>
     </If>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="726.222222222222,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_1" Message="[&quot;Demo not armed yet. Running arming&quot;]" />
-    <ui:InvokeProcess ContinueOnError="{x:Null}" DisplayName="Invoke Process" sap:VirtualizedContainerService.HintSize="726.222222222222,87.5555555555556" sap2010:WorkflowViewState.IdRef="InvokeProcess_1" ProcessName="DSF_Init_SAP">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="588,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_1" Message="[&quot;Demo not armed yet. Running arming&quot;]" />
+    <ui:InvokeProcess ContinueOnError="{x:Null}" DisplayName="Invoke Process" sap:VirtualizedContainerService.HintSize="588,87.5555555555556" sap2010:WorkflowViewState.IdRef="InvokeProcess_1" ProcessName="DSF_Init_SAP">
       <ui:InvokeProcess.Arguments>
         <scg1:Dictionary x:TypeArguments="x:String, Argument" />
       </ui:InvokeProcess.Arguments>
@@ -77,52 +76,80 @@
         </scg1:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:InvokeProcess>
-    <ui:ReadRange AddHeaders="True" DataTable="[settingsTable]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="726.222222222222,87.5555555555556" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="I2S_other_param" WorkbookPath="default_parameters.xlsx">
+    <ui:ReadRange AddHeaders="True" DataTable="[settingsTable]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="588,87.5555555555556" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="I2S_other_param" WorkbookPath="default_parameters.xlsx">
       <ui:ReadRange.Range>
         <InArgument x:TypeArguments="x:String">
           <Literal x:TypeArguments="x:String" Value="" />
         </InArgument>
       </ui:ReadRange.Range>
     </ui:ReadRange>
-    <ui:GetRobotCredential Password="{x:Null}" TimeoutMS="{x:Null}" AssetName="DSF_SAPLogin" DisplayName="Get Credential" sap:VirtualizedContainerService.HintSize="726.222222222222,22.2222222222222" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Username="[sapUser]" />
-    <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[settingsTable]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="726.222222222222,479.111111111111" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+    <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[settingsTable]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="588,585.777777777778" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
       <ui:ForEachRow.Body>
         <ActivityAction x:TypeArguments="sd4:DataRow">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="sd4:DataRow" Name="row" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="538.222222222222,329.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="538.222222222222,436" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <sap:WorkflowViewStateService.ViewState>
               <scg1:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg1:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[row(&quot;variable&quot;).ToString]" sap:VirtualizedContainerService.HintSize="496.444444444444,236.888888888889" sap2010:WorkflowViewState.IdRef="Switch`1_1">
-              <Assign x:Key="SAP_username" sap:VirtualizedContainerService.HintSize="262.222222222222,60.4444444444444" sap2010:WorkflowViewState.IdRef="Assign_1">
-                <Assign.To>
-                  <OutArgument x:TypeArguments="x:Object">[row("Default-Value")]</OutArgument>
-                </Assign.To>
-                <Assign.Value>
-                  <InArgument x:TypeArguments="x:Object">[Config("SAPUserName").ToString]</InArgument>
-                </Assign.Value>
-              </Assign>
-              <Assign x:Key="mail_sendto" sap:VirtualizedContainerService.HintSize="262.222222222222,60.4444444444444" sap2010:WorkflowViewState.IdRef="Assign_2">
-                <Assign.To>
-                  <OutArgument x:TypeArguments="x:Object">[row("Default-Value")]</OutArgument>
-                </Assign.To>
-                <Assign.Value>
-                  <InArgument x:TypeArguments="x:Object">[Config("MSAccount").ToString]</InArgument>
-                </Assign.Value>
-              </Assign>
-              <Assign x:Key="asset_orch_Login" sap:VirtualizedContainerService.HintSize="262.222222222222,60.4444444444444" sap2010:WorkflowViewState.IdRef="Assign_3">
-                <Assign.To>
-                  <OutArgument x:TypeArguments="x:Object">[row("Default-Value")]</OutArgument>
-                </Assign.To>
-                <Assign.Value>
-                  <InArgument x:TypeArguments="x:Object">["DSF_SAPLogin"]</InArgument>
-                </Assign.Value>
-              </Assign>
-              <Assign x:Key="asset_orch_folder" sap:VirtualizedContainerService.HintSize="262.222222222222,60.4444444444444" sap2010:WorkflowViewState.IdRef="Assign_4">
+            <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[row(&quot;variable&quot;).ToString]" sap:VirtualizedContainerService.HintSize="496.444444444444,343.555555555556" sap2010:WorkflowViewState.IdRef="Switch`1_1">
+              <Sequence x:Key="SAP_username" sap:VirtualizedContainerService.HintSize="304,215.111111111111" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                <Sequence.Variables>
+                  <Variable x:TypeArguments="x:String" Name="sapUser" />
+                </Sequence.Variables>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg1:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg1:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:GetRobotCredential Password="{x:Null}" TimeoutMS="{x:Null}" AssetName="DSF_SAPLogin" DisplayName="Get Credential" sap:VirtualizedContainerService.HintSize="262.222222222222,22.2222222222222" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Username="[sapUser]" />
+                <Assign DisplayName="Assign sap username" sap:VirtualizedContainerService.HintSize="262.222222222222,60.4444444444444" sap2010:WorkflowViewState.IdRef="Assign_1">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:Object">[row("Default-Value")]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:Object">[sapUser]</InArgument>
+                  </Assign.Value>
+                </Assign>
+              </Sequence>
+              <Sequence x:Key="mail_sendto" sap:VirtualizedContainerService.HintSize="304,215.111111111111" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                <Sequence.Variables>
+                  <Variable x:TypeArguments="x:String" Name="msAccount" />
+                </Sequence.Variables>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg1:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg1:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:GetRobotCredential Password="{x:Null}" TimeoutMS="{x:Null}" AssetName="DSF_MS-Account" DisplayName="Get Credential" sap:VirtualizedContainerService.HintSize="262.222222222222,22.2222222222222" sap2010:WorkflowViewState.IdRef="GetRobotCredential_2" Username="[msAccount]" />
+                <Assign DisplayName="Assign mail sendto" sap:VirtualizedContainerService.HintSize="262.222222222222,60.4444444444444" sap2010:WorkflowViewState.IdRef="Assign_2">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:Object">[row("Default-Value")]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:String">[msAccount]</InArgument>
+                  </Assign.Value>
+                </Assign>
+              </Sequence>
+              <Sequence x:Key="asset_orch_Login" sap:VirtualizedContainerService.HintSize="304,152.888888888889" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg1:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg1:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <Assign DisplayName="Assign orch login" sap:VirtualizedContainerService.HintSize="262.222222222222,60.4444444444444" sap2010:WorkflowViewState.IdRef="Assign_3">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:Object">[row("Default-Value")]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:Object">["DSF_SAPLogin"]</InArgument>
+                  </Assign.Value>
+                </Assign>
+              </Sequence>
+              <Assign x:Key="asset_orch_folder" DisplayName="Assign orch folder" sap:VirtualizedContainerService.HintSize="262.222222222222,60.4444444444444" sap2010:WorkflowViewState.IdRef="Assign_4">
                 <Assign.To>
                   <OutArgument x:TypeArguments="x:Object">[row("Default-Value")]</OutArgument>
                 </Assign.To>
@@ -130,13 +157,13 @@
                   <InArgument x:TypeArguments="x:Object">[Config("FolderName").ToString]</InArgument>
                 </Assign.Value>
               </Assign>
-              <Sequence x:Key="mail_folder" sap:VirtualizedContainerService.HintSize="304,151.111111111111" sap2010:WorkflowViewState.IdRef="Sequence_3">
+              <Sequence x:Key="mail_folder" sap:VirtualizedContainerService.HintSize="304,152.888888888889" sap2010:WorkflowViewState.IdRef="Sequence_3">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg1:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg1:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <Assign sap:VirtualizedContainerService.HintSize="262.222222222222,60.4444444444444" sap2010:WorkflowViewState.IdRef="Assign_5">
+                <Assign DisplayName="Assign mail folder" sap:VirtualizedContainerService.HintSize="262.222222222222,60.4444444444444" sap2010:WorkflowViewState.IdRef="Assign_5">
                   <Assign.To>
                     <OutArgument x:TypeArguments="x:Object">[row("Default-Value")]</OutArgument>
                   </Assign.To>
@@ -150,7 +177,7 @@
         </ActivityAction>
       </ui:ForEachRow.Body>
     </ui:ForEachRow>
-    <ui:ExcelApplicationScope Password="{x:Null}" sap2010:Annotation.AnnotationText="The Workbook version of Write Range doesn't work for an unknown reason" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="726.222222222222,334.222222222222" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_2" WorkbookPath="default_parameters.xlsx">
+    <ui:ExcelApplicationScope Password="{x:Null}" sap2010:Annotation.AnnotationText="The Workbook version of Write Range doesn't work for an unknown reason" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="588,334.222222222222" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_2" WorkbookPath="default_parameters.xlsx">
       <ui:ExcelApplicationScope.Body>
         <ActivityAction x:TypeArguments="ui:WorkbookApplication">
           <ActivityAction.Argument>
@@ -172,7 +199,7 @@
         </scg1:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:ExcelApplicationScope>
-    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke ArmCreateExampleEmails workflow" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="ArmCreateExampleEmails.xaml">
+    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke ArmCreateExampleEmails workflow" sap:VirtualizedContainerService.HintSize="588,87.5555555555556" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="ArmCreateExampleEmails.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <scg1:Dictionary x:TypeArguments="x:String, Argument" />
       </ui:InvokeWorkflowFile.Arguments>
