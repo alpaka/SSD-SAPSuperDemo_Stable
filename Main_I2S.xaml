@@ -5,7 +5,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>2680,2045.33333333333</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>2649.77777777778,2150.22222222222</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="56">
@@ -114,7 +114,7 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <Flowchart.StartNode>
-      <x:Reference>__ReferenceID30</x:Reference>
+      <x:Reference>__ReferenceID31</x:Reference>
     </Flowchart.StartNode>
     <FlowStep x:Name="__ReferenceID11">
       <sap:WorkflowViewStateService.ViewState>
@@ -778,9 +778,9 @@
     <FlowStep x:Name="__ReferenceID25">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <av:Point x:Key="ShapeLocation">690,173.555555555556</av:Point>
+          <av:Point x:Key="ShapeLocation">800,143.555555555556</av:Point>
           <av:Size x:Key="ShapeSize">200,52.8888888888889</av:Size>
-          <av:PointCollection x:Key="ConnectorLocation">890,200 950,200 950,226.444444444444</av:PointCollection>
+          <av:PointCollection x:Key="ConnectorLocation">1000,170 950,170 950,226.444444444444</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Init" sap:VirtualizedContainerService.HintSize="200,52.8888888888889" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_15" UnSafe="False" WorkflowFileName="xaml_core_I2S/Read_stucture_xlsx.xaml">
@@ -835,23 +835,44 @@
     <x:Reference>__ReferenceID24</x:Reference>
     <FlowSwitch x:TypeArguments="x:String" x:Name="__ReferenceID27" DisplayName="Mode" Expression="[mode]" sap:VirtualizedContainerService.HintSize="70.2222222222222,87.1111111111111" sap2010:WorkflowViewState.IdRef="FlowSwitch`1_1">
       <FlowSwitch.Default>
-        <FlowStep x:Name="__ReferenceID29">
+        <FlowStep x:Name="__ReferenceID30">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <av:Point x:Key="ShapeLocation">430,198.888888888889</av:Point>
-              <av:Size x:Key="ShapeSize">200,22.2222222222222</av:Size>
-              <av:PointCollection x:Key="ConnectorLocation">630,210 660,210 660,200 690,200</av:PointCollection>
+              <av:Point x:Key="ShapeLocation">410,173.555555555556</av:Point>
+              <av:Size x:Key="ShapeSize">200,52.8888888888889</av:Size>
+              <av:PointCollection x:Key="ConnectorLocation">610,200 670,200 670,81.1111111111111</av:PointCollection>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <do:ShowOutlookMailFolder FolderPath="Inbox\Invoice2SAP" sap:VirtualizedContainerService.HintSize="200,22.2222222222222" sap2010:WorkflowViewState.IdRef="ShowOutlookMailFolder_2">
+          <ui:BeginProcess DisplayName="Run Parallel Process" sap:VirtualizedContainerService.HintSize="200,52.8888888888889" sap2010:WorkflowViewState.IdRef="BeginProcess_1" ProcessName="DSF_OutlookDismissReminder">
+            <ui:BeginProcess.Arguments>
+              <scg:Dictionary x:TypeArguments="x:String, InArgument" />
+            </ui:BeginProcess.Arguments>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-          </do:ShowOutlookMailFolder>
+          </ui:BeginProcess>
           <FlowStep.Next>
-            <x:Reference>__ReferenceID25</x:Reference>
+            <FlowStep x:Name="__ReferenceID29">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <av:Point x:Key="ShapeLocation">570,58.8888888888889</av:Point>
+                  <av:Size x:Key="ShapeSize">200,22.2222222222222</av:Size>
+                  <av:PointCollection x:Key="ConnectorLocation">770,70 900,70 900,143.555555555556</av:PointCollection>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <do:ShowOutlookMailFolder FolderPath="Inbox\Invoice2SAP" sap:VirtualizedContainerService.HintSize="200,22.2222222222222" sap2010:WorkflowViewState.IdRef="ShowOutlookMailFolder_2">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </do:ShowOutlookMailFolder>
+              <FlowStep.Next>
+                <x:Reference>__ReferenceID25</x:Reference>
+              </FlowStep.Next>
+            </FlowStep>
           </FlowStep.Next>
         </FlowStep>
       </FlowSwitch.Default>
@@ -860,7 +881,7 @@
           <av:Point x:Key="ShapeLocation">294.888888888889,126.444444444444</av:Point>
           <av:Size x:Key="ShapeSize">70.2222222222222,87.1111111111111</av:Size>
           <av:PointCollection x:Key="armConnector">294.888888888889,170 130,170 130,205.777777777778</av:PointCollection>
-          <av:PointCollection x:Key="Default">365.111111111111,170 395.111111111111,170 395.111111111111,210 430,210</av:PointCollection>
+          <av:PointCollection x:Key="Default">365.111111111111,170 395.111111111111,170 395.111111111111,200 410,200</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <FlowStep x:Key="arm" x:Name="__ReferenceID26">
@@ -880,7 +901,7 @@
       </FlowStep>
     </FlowSwitch>
     <x:Reference>__ReferenceID26</x:Reference>
-    <FlowStep x:Name="__ReferenceID30">
+    <FlowStep x:Name="__ReferenceID31">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <av:Point x:Key="ShapeLocation">230,3.77777777777778</av:Point>
@@ -904,5 +925,6 @@
     </FlowStep>
     <x:Reference>__ReferenceID28</x:Reference>
     <x:Reference>__ReferenceID29</x:Reference>
+    <x:Reference>__ReferenceID30</x:Reference>
   </Flowchart>
 </Activity>
