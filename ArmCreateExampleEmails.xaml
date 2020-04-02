@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="ArmCreateExampleEmails" sap:VirtualizedContainerService.HintSize="1136,2849.77777777778" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:do="clr-namespace:DSF.Outlook;assembly=DSF" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:scg1="clr-namespace:System.Collections.Generic;assembly=System.Core" xmlns:snm="clr-namespace:System.Net.Mail;assembly=System" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="ArmCreateExampleEmails" sap:VirtualizedContainerService.HintSize="757.777777777778,2676.44444444444" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:do="clr-namespace:DSF.Outlook;assembly=DSF" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:scg1="clr-namespace:System.Collections.Generic;assembly=System.Core" xmlns:snm="clr-namespace:System.Net.Mail;assembly=System" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="22">
       <x:String>System.Activities</x:String>
@@ -50,120 +50,109 @@
       <AssemblyReference>System.Xaml</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Arm_CreateExampleEmails" sap:VirtualizedContainerService.HintSize="1146.22222222222,2684.88888888889" sap2010:WorkflowViewState.IdRef="Sequence_4">
+  <Sequence DisplayName="Arm_CreateExampleEmails" sap:VirtualizedContainerService.HintSize="768,2471.55555555556" sap2010:WorkflowViewState.IdRef="Sequence_4">
     <Sequence.Variables>
       <Variable x:TypeArguments="scg1:HashSet(x:String)" Default="[new HashSet(Of String)]" Name="messagesToFind" />
       <Variable x:TypeArguments="s:DateTime" Name="initialTime" />
-      <Variable x:TypeArguments="x:Object" Name="fldr" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <do:FindOutlookFolder FolderName="Inbox\Invoice2SAP" sap:VirtualizedContainerService.HintSize="1104.44444444444,22.2222222222222" sap2010:WorkflowViewState.IdRef="FindOutlookFolder_1" OutFolder="[fldr]" ShouldCreateIfDoesNotExist="False" />
-    <If Condition="[not fldr is Nothing]" sap:VirtualizedContainerService.HintSize="1104.44444444444,2530.22222222222" sap2010:WorkflowViewState.IdRef="If_4">
-      <If.Then>
-        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="333.777777777778,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_4" Message="[&quot;Mail folder already exists - ignoring&quot;]" />
-      </If.Then>
-      <If.Else>
-        <Sequence sap:VirtualizedContainerService.HintSize="726.222222222222,2379.11111111111" sap2010:WorkflowViewState.IdRef="Sequence_13">
-          <sap:WorkflowViewStateService.ViewState>
-            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-            </scg:Dictionary>
-          </sap:WorkflowViewStateService.ViewState>
-          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="684.444444444444,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_1" Message="[&quot;Sending example emails&quot;]" />
-          <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="684.444444444444,312.444444444444" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[Directory.EnumerateFiles(&quot;DEMO_DOCUMENTS\email_samples&quot;, &quot;*.msg&quot;)]">
-            <ui:ForEach.Body>
-              <ActivityAction x:TypeArguments="x:String">
-                <ActivityAction.Argument>
-                  <DelegateInArgument x:TypeArguments="x:String" Name="item" />
-                </ActivityAction.Argument>
-                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="241.777777777778,176.888888888889" sap2010:WorkflowViewState.IdRef="Sequence_5">
-                  <Sequence.Variables>
-                    <Variable x:TypeArguments="x:String" Name="subject" />
-                  </Sequence.Variables>
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                  <do:ImportOutlookMSGFile FolderName="{x:Null}" ForwardToMyself="True" sap:VirtualizedContainerService.HintSize="200,22.2222222222222" sap2010:WorkflowViewState.IdRef="ImportOutlookMSGFile_1" MSGPath="[Path.GetFullPath(item)]" Subject="[subject]" />
-                  <AddToCollection x:TypeArguments="x:String" Collection="[messagesToFind]" DisplayName="Add To Collection" sap:VirtualizedContainerService.HintSize="200,22.2222222222222" sap2010:WorkflowViewState.IdRef="AddToCollection`1_1" Item="[subject]" />
-                </Sequence>
-              </ActivityAction>
-            </ui:ForEach.Body>
-          </ui:ForEach>
-          <Assign sap:VirtualizedContainerService.HintSize="684.444444444444,60.4444444444444" sap2010:WorkflowViewState.IdRef="Assign_6">
-            <Assign.To>
-              <OutArgument x:TypeArguments="s:DateTime">[initialTime]</OutArgument>
-            </Assign.To>
-            <Assign.Value>
-              <InArgument x:TypeArguments="s:DateTime">[Now]</InArgument>
-            </Assign.Value>
-          </Assign>
-          <do:CreateOutlookFolder FolderName="Inbox\Invoice2SAP" sap:VirtualizedContainerService.HintSize="684.444444444444,22.2222222222222" sap2010:WorkflowViewState.IdRef="CreateOutlookFolder_1" />
-          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="684.444444444444,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_2" Message="[string.Format(&quot;Waiting to find {0} emails&quot;, messagesToFind.Count)]" />
-          <DoWhile DisplayName="Do While" sap:VirtualizedContainerService.HintSize="684.444444444444,1367.55555555556" sap2010:WorkflowViewState.IdRef="DoWhile_1">
-            <DoWhile.Variables>
-              <Variable x:TypeArguments="scg:List(snm:MailMessage)" Name="msgs" />
-            </DoWhile.Variables>
-            <DoWhile.Condition>
-              <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="messagesToFind.Count &gt; 0" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_1" />
-            </DoWhile.Condition>
-            <Sequence sap:VirtualizedContainerService.HintSize="639.111111111111,1202.22222222222" sap2010:WorkflowViewState.IdRef="Sequence_12">
+    <Sequence sap:VirtualizedContainerService.HintSize="726.222222222222,2379.11111111111" sap2010:WorkflowViewState.IdRef="Sequence_18">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="684.444444444444,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_5" Message="[&quot;Sending example emails&quot;]" />
+      <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="684.444444444444,312.444444444444" sap2010:WorkflowViewState.IdRef="ForEach`1_3" Values="[Directory.EnumerateFiles(&quot;DEMO_DOCUMENTS\email_samples&quot;, &quot;*.msg&quot;)]">
+        <ui:ForEach.Body>
+          <ActivityAction x:TypeArguments="x:String">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="x:String" Name="item" />
+            </ActivityAction.Argument>
+            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="241.777777777778,176.888888888889" sap2010:WorkflowViewState.IdRef="Sequence_14">
+              <Sequence.Variables>
+                <Variable x:TypeArguments="x:String" Name="subject" />
+              </Sequence.Variables>
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:GetOutlookMailMessages Account="{x:Null}" Filter="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Get Outlook Mail Messages" GetAttachements="False" sap:VirtualizedContainerService.HintSize="597.333333333333,22.2222222222222" sap2010:WorkflowViewState.IdRef="GetOutlookMailMessages_1" MailFolder="Inbox" MarkAsRead="False" Messages="[msgs]" OnlyUnreadMessages="True" Top="10" />
-              <ui:ForEach x:TypeArguments="snm:MailMessage" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="597.333333333333,734.222222222222" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[msgs]">
-                <ui:ForEach.Body>
-                  <ActivityAction x:TypeArguments="snm:MailMessage">
-                    <ActivityAction.Argument>
-                      <DelegateInArgument x:TypeArguments="snm:MailMessage" Name="msg" />
-                    </ActivityAction.Argument>
-                    <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="561.777777777778,598.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_11">
-                      <sap:WorkflowViewStateService.ViewState>
-                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                        </scg:Dictionary>
-                      </sap:WorkflowViewStateService.ViewState>
-                      <If Condition="[messagesToFind.Contains(msg.Subject)]" sap:VirtualizedContainerService.HintSize="520,506.222222222222" sap2010:WorkflowViewState.IdRef="If_2">
-                        <If.Then>
-                          <Sequence sap:VirtualizedContainerService.HintSize="375.555555555556,355.111111111111" sap2010:WorkflowViewState.IdRef="Sequence_10">
-                            <sap:WorkflowViewStateService.ViewState>
-                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                              </scg:Dictionary>
-                            </sap:WorkflowViewStateService.ViewState>
-                            <ui:MoveOutlookMessage Account="{x:Null}" DisplayName="Move Outlook Mail Message" sap:VirtualizedContainerService.HintSize="333.777777777778,87.5555555555556" sap2010:WorkflowViewState.IdRef="MoveOutlookMessage_1" MailFolder="Inbox\Invoice2SAP" MailMessage="[msg]" />
-                            <InvokeMethod DisplayName="Invoke Method" sap:VirtualizedContainerService.HintSize="333.777777777778,135.111111111111" sap2010:WorkflowViewState.IdRef="InvokeMethod_1" MethodName="Remove">
-                              <InvokeMethod.TargetObject>
-                                <InArgument x:TypeArguments="scg1:HashSet(x:String)">[messagesToFind]</InArgument>
-                              </InvokeMethod.TargetObject>
-                              <InArgument x:TypeArguments="x:String">[msg.Subject]</InArgument>
-                            </InvokeMethod>
-                          </Sequence>
-                        </If.Then>
-                      </If>
-                    </Sequence>
-                  </ActivityAction>
-                </ui:ForEach.Body>
-              </ui:ForEach>
-              <Delay Duration="00:00:10" sap:VirtualizedContainerService.HintSize="597.333333333333,22.2222222222222" sap2010:WorkflowViewState.IdRef="Delay_1" />
-              <If Condition="[Now - initialTime &gt; Timespan.FromMinutes(5)]" sap:VirtualizedContainerService.HintSize="597.333333333333,211.111111111111" sap2010:WorkflowViewState.IdRef="If_3">
-                <If.Then>
-                  <Throw Exception="[new ApplicationException(&quot;Timeout when waiting for forwarded emails to arrive&quot;)]" sap:VirtualizedContainerService.HintSize="200,22.2222222222222" sap2010:WorkflowViewState.IdRef="Throw_1" />
-                </If.Then>
-              </If>
+              <do:ImportOutlookMSGFile FolderName="{x:Null}" ForwardToMyself="True" sap:VirtualizedContainerService.HintSize="200,22.2222222222222" sap2010:WorkflowViewState.IdRef="ImportOutlookMSGFile_2" MSGPath="[Path.GetFullPath(item)]" Subject="[subject]" />
+              <AddToCollection x:TypeArguments="x:String" Collection="[messagesToFind]" DisplayName="Add To Collection" sap:VirtualizedContainerService.HintSize="200,22.2222222222222" sap2010:WorkflowViewState.IdRef="AddToCollection`1_2" Item="[subject]" />
             </Sequence>
-          </DoWhile>
-          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="684.444444444444,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_3" Message="[&quot;Found all emails&quot;]" />
+          </ActivityAction>
+        </ui:ForEach.Body>
+      </ui:ForEach>
+      <Assign sap:VirtualizedContainerService.HintSize="684.444444444444,60.4444444444444" sap2010:WorkflowViewState.IdRef="Assign_7">
+        <Assign.To>
+          <OutArgument x:TypeArguments="s:DateTime">[initialTime]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="s:DateTime">[Now]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <do:CreateOutlookFolder FolderName="Inbox\Invoice2SAP" sap:VirtualizedContainerService.HintSize="684.444444444444,22.2222222222222" sap2010:WorkflowViewState.IdRef="CreateOutlookFolder_2" />
+      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="684.444444444444,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_6" Message="[string.Format(&quot;Waiting to find {0} emails&quot;, messagesToFind.Count)]" />
+      <DoWhile DisplayName="Do While" sap:VirtualizedContainerService.HintSize="684.444444444444,1367.55555555556" sap2010:WorkflowViewState.IdRef="DoWhile_2">
+        <DoWhile.Variables>
+          <Variable x:TypeArguments="scg:List(snm:MailMessage)" Name="msgs" />
+        </DoWhile.Variables>
+        <DoWhile.Condition>[messagesToFind.Count &gt; 0]</DoWhile.Condition>
+        <Sequence sap:VirtualizedContainerService.HintSize="639.111111111111,1202.22222222222" sap2010:WorkflowViewState.IdRef="Sequence_17">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:GetOutlookMailMessages Account="{x:Null}" Filter="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Get Outlook Mail Messages" GetAttachements="False" sap:VirtualizedContainerService.HintSize="597.333333333333,22.2222222222222" sap2010:WorkflowViewState.IdRef="GetOutlookMailMessages_2" MailFolder="Inbox" MarkAsRead="False" Messages="[msgs]" OnlyUnreadMessages="True" Top="10" />
+          <ui:ForEach x:TypeArguments="snm:MailMessage" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="597.333333333333,734.222222222222" sap2010:WorkflowViewState.IdRef="ForEach`1_4" Values="[msgs]">
+            <ui:ForEach.Body>
+              <ActivityAction x:TypeArguments="snm:MailMessage">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="snm:MailMessage" Name="msg" />
+                </ActivityAction.Argument>
+                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="561.777777777778,598.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <If Condition="[messagesToFind.Contains(msg.Subject)]" sap:VirtualizedContainerService.HintSize="520,506.222222222222" sap2010:WorkflowViewState.IdRef="If_5">
+                    <If.Then>
+                      <Sequence sap:VirtualizedContainerService.HintSize="375.555555555556,355.111111111111" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:MoveOutlookMessage Account="{x:Null}" DisplayName="Move Outlook Mail Message" sap:VirtualizedContainerService.HintSize="333.777777777778,87.5555555555556" sap2010:WorkflowViewState.IdRef="MoveOutlookMessage_2" MailFolder="Inbox\Invoice2SAP" MailMessage="[msg]" />
+                        <InvokeMethod DisplayName="Invoke Method" sap:VirtualizedContainerService.HintSize="333.777777777778,135.111111111111" sap2010:WorkflowViewState.IdRef="InvokeMethod_2" MethodName="Remove">
+                          <InvokeMethod.TargetObject>
+                            <InArgument x:TypeArguments="scg1:HashSet(x:String)">[messagesToFind]</InArgument>
+                          </InvokeMethod.TargetObject>
+                          <InArgument x:TypeArguments="x:String">[msg.Subject]</InArgument>
+                        </InvokeMethod>
+                      </Sequence>
+                    </If.Then>
+                  </If>
+                </Sequence>
+              </ActivityAction>
+            </ui:ForEach.Body>
+          </ui:ForEach>
+          <Delay Duration="00:00:10" sap:VirtualizedContainerService.HintSize="597.333333333333,22.2222222222222" sap2010:WorkflowViewState.IdRef="Delay_2" />
+          <If Condition="[Now - initialTime &gt; Timespan.FromMinutes(5)]" sap:VirtualizedContainerService.HintSize="597.333333333333,211.111111111111" sap2010:WorkflowViewState.IdRef="If_6">
+            <If.Then>
+              <Throw Exception="[new ApplicationException(&quot;Timeout when waiting for forwarded emails to arrive&quot;)]" sap:VirtualizedContainerService.HintSize="200,22.2222222222222" sap2010:WorkflowViewState.IdRef="Throw_2" />
+            </If.Then>
+          </If>
         </Sequence>
-      </If.Else>
-    </If>
+      </DoWhile>
+      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="684.444444444444,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_7" Message="[&quot;Found all emails&quot;]" />
+    </Sequence>
   </Sequence>
 </Activity>
