@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="ArmCreateExampleEmails" sap:VirtualizedContainerService.HintSize="757.777777777778,2676.44444444444" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:do="clr-namespace:DSF.Outlook;assembly=DSF" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:scg1="clr-namespace:System.Collections.Generic;assembly=System.Core" xmlns:snm="clr-namespace:System.Net.Mail;assembly=System" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="ArmCreateExampleEmails" sap:VirtualizedContainerService.HintSize="757.777777777778,2738.66666666667" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:do="clr-namespace:DSF.Outlook;assembly=DSF" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:scg1="clr-namespace:System.Collections.Generic;assembly=System.Core" xmlns:snm="clr-namespace:System.Net.Mail;assembly=System" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="22">
       <x:String>System.Activities</x:String>
@@ -50,7 +50,7 @@
       <AssemblyReference>System.Xaml</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Arm_CreateExampleEmails" sap:VirtualizedContainerService.HintSize="768,2471.55555555556" sap2010:WorkflowViewState.IdRef="Sequence_4">
+  <Sequence DisplayName="Arm_CreateExampleEmails" sap:VirtualizedContainerService.HintSize="768,2533.77777777778" sap2010:WorkflowViewState.IdRef="Sequence_4">
     <Sequence.Variables>
       <Variable x:TypeArguments="scg1:HashSet(x:String)" Default="[new HashSet(Of String)]" Name="messagesToFind" />
       <Variable x:TypeArguments="s:DateTime" Name="initialTime" />
@@ -60,7 +60,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence sap:VirtualizedContainerService.HintSize="726.222222222222,2379.11111111111" sap2010:WorkflowViewState.IdRef="Sequence_18">
+    <Sequence sap:VirtualizedContainerService.HintSize="726.222222222222,2441.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_18">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -96,6 +96,7 @@
           <InArgument x:TypeArguments="s:DateTime">[Now]</InArgument>
         </Assign.Value>
       </Assign>
+      <do:DeleteOutlookFolder WasFolderDeleted="{x:Null}" FolderName="Inbox\Invoice2SAP" sap:VirtualizedContainerService.HintSize="684.444444444444,22.2222222222222" sap2010:WorkflowViewState.IdRef="DeleteOutlookFolder_1" />
       <do:CreateOutlookFolder FolderName="Inbox\Invoice2SAP" sap:VirtualizedContainerService.HintSize="684.444444444444,22.2222222222222" sap2010:WorkflowViewState.IdRef="CreateOutlookFolder_2" />
       <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="684.444444444444,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_6" Message="[string.Format(&quot;Waiting to find {0} emails&quot;, messagesToFind.Count)]" />
       <DoWhile DisplayName="Do While" sap:VirtualizedContainerService.HintSize="684.444444444444,1367.55555555556" sap2010:WorkflowViewState.IdRef="DoWhile_2">
