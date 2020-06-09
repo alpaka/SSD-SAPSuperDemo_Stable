@@ -6,7 +6,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>843.111111111111,3196.88888888889</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1873.77777777778,7774.22222222222</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="35">
@@ -82,15 +82,15 @@
       <x:Boolean x:Key="ShouldExpandAll">True</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <Sequence DisplayName="Format XLS a bit - press ESC when debuging;-)" sap:VirtualizedContainerService.HintSize="823.111111111111,3136.88888888889" sap2010:WorkflowViewState.IdRef="Sequence_3">
+  <Sequence DisplayName="Format XLS a bit - press ESC when debuging;-)" sap:VirtualizedContainerService.HintSize="823.111111111111,7709.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_3">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <If Condition="[format_xls]" DisplayName="If Excel should be formatted" sap:VirtualizedContainerService.HintSize="781.333333333333,3044.44444444444" sap2010:WorkflowViewState.IdRef="If_1">
+    <If Condition="[format_xls]" DisplayName="If Excel should be formatted" sap:VirtualizedContainerService.HintSize="781.333333333333,7616.88888888889" sap2010:WorkflowViewState.IdRef="If_1">
       <If.Then>
-        <Sequence DisplayName="Open &amp; finally close &amp; safe changes" sap:VirtualizedContainerService.HintSize="636.888888888889,2893.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_7">
+        <Sequence DisplayName="Open &amp; finally close &amp; safe changes" sap:VirtualizedContainerService.HintSize="636.888888888889,7465.77777777778" sap2010:WorkflowViewState.IdRef="Sequence_7">
           <Sequence.Variables>
             <Variable x:TypeArguments="ui:GenericValue" Name="xls_selector" />
           </Sequence.Variables>
@@ -99,9 +99,9 @@
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:BlockUserInput TimeoutMS="{x:Null}" BlockType="All" DisplayName="Block User Input - until ESC is pressed" sap:VirtualizedContainerService.HintSize="595.111111111111,2800.88888888889" sap2010:WorkflowViewState.IdRef="BlockUserInput_1" KeyModifiers="None" Keys="esc" SpecialKey="True">
+          <ui:BlockUserInput TimeoutMS="{x:Null}" BlockType="All" DisplayName="Block User Input - until ESC is pressed" sap:VirtualizedContainerService.HintSize="595.111111111111,7373.33333333333" sap2010:WorkflowViewState.IdRef="BlockUserInput_1" KeyModifiers="None" Keys="esc" SpecialKey="True">
             <ui:BlockUserInput.Body>
-              <Sequence DisplayName="Do the formatting" sap:VirtualizedContainerService.HintSize="559.555555555556,2672.88888888889" sap2010:WorkflowViewState.IdRef="Sequence_5">
+              <Sequence DisplayName="Do the formatting" sap:VirtualizedContainerService.HintSize="559.555555555556,7245.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_5">
                 <Sequence.Variables>
                   <Variable x:TypeArguments="ui:WorkbookApplication" Name="workbook" />
                 </Sequence.Variables>
@@ -123,7 +123,7 @@
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                 </Assign>
-                <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="517.777777777778,2319.11111111111" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" MacroSetting="DisableAll" Workbook="[workbook]" WorkbookPath="[path.combine(dir_results,&quot;logging.xlsx&quot;)]">
+                <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="517.777777777778,6891.55555555556" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" MacroSetting="DisableAll" Workbook="[workbook]" WorkbookPath="[path.combine(dir_results,&quot;logging.xlsx&quot;)]">
                   <ui:ExcelApplicationScope.Body>
                     <ActivityAction x:TypeArguments="ui:WorkbookApplication">
                       <ActivityAction.Argument>
@@ -201,7 +201,7 @@
                                 </ui:Target>
                               </ui:SendHotkey.Target>
                             </ui:SendHotkey>
-                            <ui:SelectItem ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Select Item 'list item  Custom'" sap:VirtualizedContainerService.HintSize="358.666666666667,134.666666666667" sap2010:WorkflowViewState.IdRef="SelectItem_5" Item="Custom">
+                            <ui:SelectItem ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" AlterIfDisabled="True" DisplayName="Select Item 'list item  Custom'" sap:VirtualizedContainerService.HintSize="358.666666666667,134.666666666667" sap2010:WorkflowViewState.IdRef="SelectItem_5" Item="Custom">
                               <ui:SelectItem.Items>
                                 <scg:List x:TypeArguments="x:String" Capacity="16">
                                   <x:String>General</x:String>
@@ -229,7 +229,7 @@
                                 </ui:Target>
                               </ui:SelectItem.Target>
                             </ui:SelectItem>
-                            <ui:TypeInto ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into 'EDTBX'" EmptyField="True" sap:VirtualizedContainerService.HintSize="358.666666666667,134.666666666667" sap2010:WorkflowViewState.IdRef="TypeInto_6" Text="dd.MM.yyyy  - hh:mm:ss">
+                            <ui:TypeInto ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" AlterIfDisabled="True" DisplayName="Type Into 'EDTBX'" EmptyField="True" sap:VirtualizedContainerService.HintSize="358.666666666667,134.666666666667" sap2010:WorkflowViewState.IdRef="TypeInto_6" Text="dd.MM.yyyy  - hh:mm:ss">
                               <ui:TypeInto.Target>
                                 <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="28738d5e4f0dfbcf3d5da757832ed60c" Selector="&lt;wnd app='excel.exe' cls='bosa_sdm_XL9' title='Format Cells' /&gt;&lt;wnd omit:aaname='#.##0,00' cls='EDTBX' /&gt;">
                                   <ui:Target.TimeoutMS>
@@ -241,7 +241,7 @@
                                 </ui:Target>
                               </ui:TypeInto.Target>
                             </ui:TypeInto>
-                            <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'push button  OK'" sap:VirtualizedContainerService.HintSize="358.666666666667,106.666666666667" sap2010:WorkflowViewState.IdRef="Click_14" KeyModifiers="None" MouseButton="BTN_LEFT">
+                            <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" AlterIfDisabled="True" ClickType="CLICK_SINGLE" DisplayName="Click 'push button  OK'" sap:VirtualizedContainerService.HintSize="358.666666666667,106.666666666667" sap2010:WorkflowViewState.IdRef="Click_14" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
                               <ui:Click.CursorPosition>
                                 <ui:CursorPosition Position="Center">
                                   <ui:CursorPosition.OffsetX>
@@ -296,7 +296,7 @@
                                 </ui:Target>
                               </ui:SendHotkey.Target>
                             </ui:SendHotkey>
-                            <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'page tab  Custom'" sap:VirtualizedContainerService.HintSize="333.777777777778,106.666666666667" sap2010:WorkflowViewState.IdRef="Click_15" KeyModifiers="None" MouseButton="BTN_LEFT">
+                            <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" AlterIfDisabled="True" ClickType="CLICK_SINGLE" DisplayName="Click 'page tab  Custom'" sap:VirtualizedContainerService.HintSize="333.777777777778,106.666666666667" sap2010:WorkflowViewState.IdRef="Click_15" KeyModifiers="None" MouseButton="BTN_LEFT">
                               <ui:Click.CursorPosition>
                                 <ui:CursorPosition Position="Center">
                                   <ui:CursorPosition.OffsetX>
@@ -318,7 +318,7 @@
                                 </ui:Target>
                               </ui:Click.Target>
                             </ui:Click>
-                            <ui:TypeInto ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into 'RichEdit20W'" EmptyField="True" sap:VirtualizedContainerService.HintSize="333.777777777778,134.666666666667" sap2010:WorkflowViewState.IdRef="TypeInto_7" Text="255">
+                            <ui:TypeInto ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" AlterIfDisabled="True" DisplayName="Type Into 'RichEdit20W'" EmptyField="True" sap:VirtualizedContainerService.HintSize="333.777777777778,134.666666666667" sap2010:WorkflowViewState.IdRef="TypeInto_7" Text="255">
                               <ui:TypeInto.Target>
                                 <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="122d4c6ba86e53fa9f0f524b1ce1548d" Selector="&lt;wnd app='excel.exe' cls='bosa_sdm_XL9' title='Colors' /&gt;&lt;wnd cls='RichEdit20W' idx='10' /&gt;">
                                   <ui:Target.TimeoutMS>
@@ -330,7 +330,7 @@
                                 </ui:Target>
                               </ui:TypeInto.Target>
                             </ui:TypeInto>
-                            <ui:TypeInto ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into 'RichEdit20W'" EmptyField="True" sap:VirtualizedContainerService.HintSize="333.777777777778,134.666666666667" sap2010:WorkflowViewState.IdRef="TypeInto_9" Text="0">
+                            <ui:TypeInto ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" AlterIfDisabled="True" DisplayName="Type Into 'RichEdit20W'" EmptyField="True" sap:VirtualizedContainerService.HintSize="333.777777777778,134.666666666667" sap2010:WorkflowViewState.IdRef="TypeInto_9" Text="0">
                               <ui:TypeInto.Target>
                                 <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="adb9a7028412410ae37d5ebcdaa3e493" Selector="&lt;wnd app='excel.exe' cls='bosa_sdm_XL9' title='Colors' /&gt;&lt;wnd cls='RichEdit20W' idx='11' /&gt;">
                                   <ui:Target.TimeoutMS>
@@ -342,7 +342,7 @@
                                 </ui:Target>
                               </ui:TypeInto.Target>
                             </ui:TypeInto>
-                            <ui:TypeInto ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into 'RichEdit20W'" EmptyField="True" sap:VirtualizedContainerService.HintSize="333.777777777778,134.666666666667" sap2010:WorkflowViewState.IdRef="TypeInto_10" Text="0">
+                            <ui:TypeInto ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" AlterIfDisabled="True" DisplayName="Type Into 'RichEdit20W'" EmptyField="True" sap:VirtualizedContainerService.HintSize="333.777777777778,134.666666666667" sap2010:WorkflowViewState.IdRef="TypeInto_10" Text="0">
                               <ui:TypeInto.Target>
                                 <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="bf20d479e1db3cba5787b654804c7aa8" Selector="&lt;wnd app='excel.exe' cls='bosa_sdm_XL9' title='Colors' /&gt;&lt;wnd cls='RichEdit20W' idx='12' /&gt;">
                                   <ui:Target.TimeoutMS>
@@ -439,7 +439,7 @@
                                 </ui:Target>
                               </ui:SendHotkey.Target>
                             </ui:SendHotkey>
-                            <ui:SelectItem ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Select Item 'list item  Custom'" sap:VirtualizedContainerService.HintSize="358.666666666667,134.666666666667" sap2010:WorkflowViewState.IdRef="SelectItem_4" Item="Custom">
+                            <ui:SelectItem ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" AlterIfDisabled="True" DisplayName="Select Item 'list item  Custom'" sap:VirtualizedContainerService.HintSize="358.666666666667,134.666666666667" sap2010:WorkflowViewState.IdRef="SelectItem_4" Item="Custom">
                               <ui:SelectItem.Items>
                                 <scg:List x:TypeArguments="x:String" Capacity="16">
                                   <x:String>General</x:String>
@@ -467,7 +467,7 @@
                                 </ui:Target>
                               </ui:SelectItem.Target>
                             </ui:SelectItem>
-                            <ui:TypeInto ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into 'EDTBX'" EmptyField="True" sap:VirtualizedContainerService.HintSize="358.666666666667,134.666666666667" sap2010:WorkflowViewState.IdRef="TypeInto_4" Text="dd.MM.yyyy  - hh:mm:ss">
+                            <ui:TypeInto ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" AlterIfDisabled="True" DisplayName="Type Into 'EDTBX'" EmptyField="True" sap:VirtualizedContainerService.HintSize="358.666666666667,134.666666666667" sap2010:WorkflowViewState.IdRef="TypeInto_4" Text="dd.MM.yyyy  - hh:mm:ss">
                               <ui:TypeInto.Target>
                                 <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="28738d5e4f0dfbcf3d5da757832ed60c" Selector="&lt;wnd app='excel.exe' cls='bosa_sdm_XL9' title='Format Cells' /&gt;&lt;wnd omit:aaname='#.##0,00' cls='EDTBX' /&gt;">
                                   <ui:Target.TimeoutMS>
@@ -479,7 +479,7 @@
                                 </ui:Target>
                               </ui:TypeInto.Target>
                             </ui:TypeInto>
-                            <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'push button  OK'" sap:VirtualizedContainerService.HintSize="358.666666666667,106.666666666667" sap2010:WorkflowViewState.IdRef="Click_11" KeyModifiers="None" MouseButton="BTN_LEFT">
+                            <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" AlterIfDisabled="True" ClickType="CLICK_SINGLE" DisplayName="Click 'push button  OK'" sap:VirtualizedContainerService.HintSize="358.666666666667,106.666666666667" sap2010:WorkflowViewState.IdRef="Click_11" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
                               <ui:Click.CursorPosition>
                                 <ui:CursorPosition Position="Center">
                                   <ui:CursorPosition.OffsetX>
@@ -534,7 +534,7 @@
                                 </ui:Target>
                               </ui:SendHotkey.Target>
                             </ui:SendHotkey>
-                            <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'page tab  Custom'" sap:VirtualizedContainerService.HintSize="333.777777777778,106.666666666667" sap2010:WorkflowViewState.IdRef="Click_16" KeyModifiers="None" MouseButton="BTN_LEFT">
+                            <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" AlterIfDisabled="True" ClickType="CLICK_SINGLE" DisplayName="Click 'page tab  Custom'" sap:VirtualizedContainerService.HintSize="333.777777777778,106.666666666667" sap2010:WorkflowViewState.IdRef="Click_16" KeyModifiers="None" MouseButton="BTN_LEFT">
                               <ui:Click.CursorPosition>
                                 <ui:CursorPosition Position="Center">
                                   <ui:CursorPosition.OffsetX>
@@ -556,7 +556,7 @@
                                 </ui:Target>
                               </ui:Click.Target>
                             </ui:Click>
-                            <ui:TypeInto ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into 'RichEdit20W'" EmptyField="True" sap:VirtualizedContainerService.HintSize="333.777777777778,134.666666666667" sap2010:WorkflowViewState.IdRef="TypeInto_11" Text="255">
+                            <ui:TypeInto ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" AlterIfDisabled="True" DisplayName="Type Into 'RichEdit20W'" EmptyField="True" sap:VirtualizedContainerService.HintSize="333.777777777778,134.666666666667" sap2010:WorkflowViewState.IdRef="TypeInto_11" Text="255">
                               <ui:TypeInto.Target>
                                 <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="122d4c6ba86e53fa9f0f524b1ce1548d" Selector="&lt;wnd app='excel.exe' cls='bosa_sdm_XL9' title='Colors' /&gt;&lt;wnd cls='RichEdit20W' idx='10' /&gt;">
                                   <ui:Target.TimeoutMS>
@@ -568,7 +568,7 @@
                                 </ui:Target>
                               </ui:TypeInto.Target>
                             </ui:TypeInto>
-                            <ui:TypeInto ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into 'RichEdit20W'" EmptyField="True" sap:VirtualizedContainerService.HintSize="333.777777777778,134.666666666667" sap2010:WorkflowViewState.IdRef="TypeInto_12" Text="0">
+                            <ui:TypeInto ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" AlterIfDisabled="True" DisplayName="Type Into 'RichEdit20W'" EmptyField="True" sap:VirtualizedContainerService.HintSize="333.777777777778,134.666666666667" sap2010:WorkflowViewState.IdRef="TypeInto_12" Text="0">
                               <ui:TypeInto.Target>
                                 <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="adb9a7028412410ae37d5ebcdaa3e493" Selector="&lt;wnd app='excel.exe' cls='bosa_sdm_XL9' title='Colors' /&gt;&lt;wnd cls='RichEdit20W' idx='11' /&gt;">
                                   <ui:Target.TimeoutMS>
@@ -580,7 +580,7 @@
                                 </ui:Target>
                               </ui:TypeInto.Target>
                             </ui:TypeInto>
-                            <ui:TypeInto ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into 'RichEdit20W'" EmptyField="True" sap:VirtualizedContainerService.HintSize="333.777777777778,134.666666666667" sap2010:WorkflowViewState.IdRef="TypeInto_13" Text="0">
+                            <ui:TypeInto ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" AlterIfDisabled="True" DisplayName="Type Into 'RichEdit20W'" EmptyField="True" sap:VirtualizedContainerService.HintSize="333.777777777778,134.666666666667" sap2010:WorkflowViewState.IdRef="TypeInto_13" Text="0">
                               <ui:TypeInto.Target>
                                 <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="bf20d479e1db3cba5787b654804c7aa8" Selector="&lt;wnd app='excel.exe' cls='bosa_sdm_XL9' title='Colors' /&gt;&lt;wnd cls='RichEdit20W' idx='12' /&gt;">
                                   <ui:Target.TimeoutMS>
@@ -666,7 +666,7 @@
                     </ActivityAction>
                   </ui:ExcelApplicationScope.Body>
                 </ui:ExcelApplicationScope>
-                <ui:ExcelCloseWorkbook DisplayName="Close Workbook" sap:VirtualizedContainerService.HintSize="433.777777777778,59.5555555555556" sap2010:WorkflowViewState.IdRef="ExcelCloseWorkbook_1" Workbook="[workbook]" />
+                <ui:ExcelCloseWorkbook DisplayName="Close Workbook" sap:VirtualizedContainerService.HintSize="517.777777777778,59.5555555555556" sap2010:WorkflowViewState.IdRef="ExcelCloseWorkbook_1" Workbook="[workbook]" />
               </Sequence>
             </ui:BlockUserInput.Body>
             <sap:WorkflowViewStateService.ViewState>
